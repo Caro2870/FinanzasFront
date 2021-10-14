@@ -10,15 +10,26 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistroComponent } from './auth/registro/registro.component';
+import { MenuComponent } from './menu/menu/menu.component';
+import { IndexComponent } from './index/index.component';
+import {FormsModule} from "@angular/forms";
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegistroComponent,
+    MenuComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(), // ToastrModule added
+    ToastrModule.forRoot(),
+    FormsModule,
+    // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]
