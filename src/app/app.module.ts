@@ -15,6 +15,8 @@ import { RegistroComponent } from './auth/registro/registro.component';
 import { MenuComponent } from './menu/menu/menu.component';
 import { IndexComponent } from './index/index.component';
 import {FormsModule} from "@angular/forms";
+import {interceptorProvider} from "./interceptors/prod-interceptor.service";
+import {HttpClientModule} from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,12 +28,13 @@ import {FormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule, // required animations module
+    BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    HttpClientModule,
     FormsModule,
     // ToastrModule added
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
