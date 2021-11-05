@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {LoginUsuario} from "../../models/login-usuario";
 import {TokenService} from "../../services/token.service";
 import {AuthService} from "../../services/auth.service";
-import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
+import {FormControl, FormGroupDirective, FormGroup, NgForm, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   password!: string;
   roles: string[] = [];
   errMsj!: string;
+
 
   constructor(
     private tokenService: TokenService,

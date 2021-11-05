@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenService} from "../../services/token.service";
+import {Observable} from "rxjs";
+import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
+import {map, shareReplay} from "rxjs/operators";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +14,8 @@ export class MenuComponent implements OnInit {
 
   isLogged = false;
 
-  constructor(private tokenService: TokenService) { }
+  constructor(private router: Router, private route: ActivatedRoute,
+    private tokenService: TokenService, private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
     if (this.tokenService.getToken()) {
@@ -24,5 +29,11 @@ export class MenuComponent implements OnInit {
     this.tokenService.logOut();
     window.location.reload();
   }
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 
 }

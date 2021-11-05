@@ -1,40 +1,34 @@
-<app-menu></app-menu>
-<div class="text-center" *ngIf="isLogged; else loggedOut">
-  <h2>Ya has iniciado sesión</h2>
-</div>
-
-<ng-template #loggedOut>
-  <div class="container d-flex justify-content-center">
-    <div class="card">
-      <div class="card-header">
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" routerLink="/login">Iniciar Sesión</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/registro">Crear Cuenta</a>
-          </li>
-
-        </ul>
+<div class="login-screen">
+  <app-menu></app-menu>
+  <div class="big-container">
+    <div class="img-eperson">
+    </div>
+    <div class="e-login">
+      <h1 class="ta-center fs-36">Login</h1>
+      <h2 class="ta-center">Log in to continue</h2>
+      <div class="form">
+        <div class="fields">
+          <mat-form-field appearance="outline">
+            <mat-label>Please enter email</mat-label>
+            <input matInput type="email"
+                   pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                   required [(ngModel)]="nombreUsuario">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Please enter password</mat-label>
+            <input matInput type="password" required [(ngModel)]="password">
+          </mat-form-field>
+        </div>
+        <div style="display: flex; justify-content: space-between">
+          <mat-checkbox class="example-margin" color="primary">Remember me?</mat-checkbox>
+          <p style="color: #1F86FF">I forgot my password</p>
+        </div>
       </div>
-      <div class="card-body">
-        <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
-          <div class="form-group">
-            <label for="nombreUsuario">Nombre de Usuario</label>
-            <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control"
-                   [(ngModel)]="nombreUsuario" required>
-          </div>
-          <div class="form-group">
-            <label for="password">Contraseña</label>
-            <input type="password" name="password" id="password" class="form-control"
-                   [(ngModel)]="password" required>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-              <i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
-          </div>
-        </form>
+      <div class="center-button">
+        <button mat-raised-button color="primary" class="btn-login">LOGIN</button>
       </div>
+      <a routerLink="../sign-up" class="ta-center" style="color: #1F86FF; text-decoration: none">Or create a new account</a>
     </div>
   </div>
-</ng-template>
+  <app-footer></app-footer>
+</div>
