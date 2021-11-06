@@ -6,26 +6,26 @@
         <h3>Datos del Recibo por Honorarios</h3>
         <div class="flex">
           <span>(FE) Fecha de Emisión	</span>
-          <input type="date" matInput required>
+          <input type="date"  required>
         </div>
         <div class="flex">
           <span>(FP) Fecha de Pago	</span>
-          <input type="date" matInput required>
+          <input type="date"  required>
         </div>
         <div class="flex">
           <span>(TR) Total a Recibir (S/)	</span>
-          <input type="number" matInput required>
+          <input type="number"  required>
         </div>
         <div class="flex">
           <span>(Rt) Retención (S/)	</span>
-          <input type="number" matInput required>
+          <input type="number"  required>
         </div>
       </div>
       <div class="box green">
         <h3>Tasa y Plazo</h3>
         <div class="flex">
           <span>(DA) Días por año</span>
-          <input type="number" matInput required>
+          <input type="number"  required>
         </div>
         <div class="flex">
           <span>(P) Plazo de Tasa</span>
@@ -40,26 +40,78 @@
             <option value="anu">Anual</option>
             <option value="esp">Especial</option>
           </select>
+          <input class="shorter" type="number" required>
         </div>
         <div class="flex">
           <span>(TE) Tasa Efectiva (%)</span>
-          <input type="number" matInput required>
+          <input type="number" required>
         </div>
         <div class="flex">
           <span>(FD) Fecha de Descuento</span>
-          <input type="date" matInput required>
+          <input type="date"  required>
         </div>
       </div>
       <div class="box green larger">
         <h3>Costes / Gastos Iniciales</h3>
-        <span>Motivo</span>
-        <span>Valor expresado en</span>
+        <div class="flex">
+          <span>Motivo</span>
+          <select id="conceptoInicial">
+            <option value="Portes" selected="">Portes</option>
+            <option value="Fotocopias">Fotocopias</option>
+            <option value="Comisión de estudio">Comisión de estudio</option>
+            <option value="Comisión de desembolso">Comisión de desembolso</option>
+            <option value="Comisión de intermediación">Comisión de intermediación</option>
+            <option value="Gastos de administración">Gastos de administración</option>
+            <option value="Gastos notariales">Gastos notariales</option>
+            <option value="Gastos registrales">Gastos registrales</option>
+            <option value="Seguro">Seguro</option>
+            <option value="Otros gastos">Otros gastos</option>
+          </select>
+        </div>
+        <div class="flex">
+          <span>Valor expresado en efectivo</span>
+          <input type="number"  required>
+          <div class="example-button-container">
+            <button mat-mini-fab class="plus-button" aria-label="Example icon button with a plus one icon">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div class="scrollable" style="overflow:scroll; height:100px; background-color: white">
+          <h4>1</h4><h4>2</h4><h4>3</h4><h4>4</h4><h4>5</h4><h4>6</h4><h4>7</h4><h4>8</h4><h4>9</h4><h4>10
+        </h4>
+        </div>
       </div>
       <div class="box white larger">
-        <h3>Costes / Gastos Finales</h3>
-        <span>Motivo</span>
-        <span>Valor expresado en</span>
-      </div>
+        <h3>Costes / Gastos Iniciales</h3>
+        <div class="flex">
+          <span>Motivo</span>
+          <select id="conceptoFinal">
+            <option value="Portes" selected="">Portes</option>
+            <option value="Fotocopias">Fotocopias</option>
+            <option value="Comisión de estudio">Comisión de estudio</option>
+            <option value="Comisión de desembolso">Comisión de desembolso</option>
+            <option value="Comisión de intermediación">Comisión de intermediación</option>
+            <option value="Gastos de administración">Gastos de administración</option>
+            <option value="Gastos notariales">Gastos notariales</option>
+            <option value="Gastos registrales">Gastos registrales</option>
+            <option value="Seguro">Seguro</option>
+            <option value="Otros gastos">Otros gastos</option>
+          </select>
+        </div>
+        <div class="flex">
+          <span>Valor expresado en efectivo</span>
+          <input type="number"  required>
+            <button mat-mini-fab class="plus-button" aria-label="Example icon button with a plus one icon">
+              <mat-icon>add</mat-icon>
+            </button>
+        </div>
+        <div class="scrollable" style="overflow:scroll; height:100px; background-color: white"></div>
+        </div>
     </section>
+    <div class="buttons">
+      <button mat-raised-button class="btn-color" routerLink="">AGREGAR</button>
+      <button mat-raised-button class="btn-color" routerLink="">VER RESULTADOS</button>
+    </div>
   </div>
 </app-sidenav>

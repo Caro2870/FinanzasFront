@@ -1,0 +1,17 @@
+.img-eperson{
+  width: 50%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.landing-screen{
+   height: 100vh;
+   width: 100vw;
+}
+.big-container{
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  justify-content: space-around;
+  height: 80%;
+}

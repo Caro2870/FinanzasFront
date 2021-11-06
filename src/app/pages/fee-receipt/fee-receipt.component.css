@@ -2,19 +2,33 @@
   text-align: center;
 }
 .container{
-  padding: 2% 8%;
+  padding: 3% 8%;
 }
 .fs-50{
   font-size: 3.5em;
 }
 .receipt-grid{
-  padding: 0% 5%;
+  padding: 1% 5%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
 }
+.buttons{
+  padding: 0% 6%;
+}
+.buttons button{
+  margin: 6px;
+}
+.plus-button{
+  background-color: #ffff;
+  color: #000;
+  margin-left: 10%;
+  /*height: 40px;*/
+}
+.scrollable{
+}
 .box{
-  width: 80%;
+  width: 85%;
   height: 140px;
   margin: 5px 0px;
   border-radius: 25px;
@@ -29,6 +43,7 @@ section div{
 }
 select{
   width:  147px!important;
+  height: 20px !important;
 }
 .white{
   background-color: wheat;
@@ -37,6 +52,10 @@ select{
   background-color: #A2BCE0;
 }
 .flex{
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.5fr;
+}
+.real-flex{
   display: flex;
   justify-content: space-between;
 }
@@ -49,4 +68,10 @@ h3{
 .field{
   width: 80px;
   height: 5px!important;
+}
+span{
+  font-size: 13px !important;
+}
+.shorter{
+  width: 66px !important;
 }
