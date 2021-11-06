@@ -1,0 +1,65 @@
+<app-sidenav>
+  <div class="container">
+    <h1 class="wallet-name fs-50">BCP</h1>
+    <section class="receipt-grid">
+      <div class="box white">
+        <h3>Datos del Recibo por Honorarios</h3>
+        <div class="flex">
+          <span>(FE) Fecha de Emisión	</span>
+          <input type="date" matInput required>
+        </div>
+        <div class="flex">
+          <span>(FP) Fecha de Pago	</span>
+          <input type="date" matInput required>
+        </div>
+        <div class="flex">
+          <span>(TR) Total a Recibir (S/)	</span>
+          <input type="number" matInput required>
+        </div>
+        <div class="flex">
+          <span>(Rt) Retención (S/)	</span>
+          <input type="number" matInput required>
+        </div>
+      </div>
+      <div class="box green">
+        <h3>Tasa y Plazo</h3>
+        <div class="flex">
+          <span>(DA) Días por año</span>
+          <input type="number" matInput required>
+        </div>
+        <div class="flex">
+          <span>(P) Plazo de Tasa</span>
+          <select name="tasas" id="tasas">
+            <option value="di">Diario</option>
+            <option value="quin">Quincenal</option>
+            <option value="men">Mensual</option>
+            <option value="bim">Bimestral</option>
+            <option value="trim">Trimestral</option>
+            <option value="cuatrim">Cuatrimestral</option>
+            <option value="sem">Semestral</option>
+            <option value="anu">Anual</option>
+            <option value="esp">Especial</option>
+          </select>
+        </div>
+        <div class="flex">
+          <span>(TE) Tasa Efectiva (%)</span>
+          <input type="number" matInput required>
+        </div>
+        <div class="flex">
+          <span>(FD) Fecha de Descuento</span>
+          <input type="date" matInput required>
+        </div>
+      </div>
+      <div class="box green larger">
+        <h3>Costes / Gastos Iniciales</h3>
+        <span>Motivo</span>
+        <span>Valor expresado en</span>
+      </div>
+      <div class="box white larger">
+        <h3>Costes / Gastos Finales</h3>
+        <span>Motivo</span>
+        <span>Valor expresado en</span>
+      </div>
+    </section>
+  </div>
+</app-sidenav>

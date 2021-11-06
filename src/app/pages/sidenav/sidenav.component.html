@@ -1,0 +1,78 @@
+<!--<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false">
+    <app-menu></app-menu>
+    <mat-nav-list >
+      <br>
+      <br>
+      <br>
+      <a mat-list-item class="bold">+    Inicio  <span class="default-spacer"></span></a>
+      <a mat-list-item class="bold">+    Mis carteras   <span class="default-spacer"></span></a>
+      <a mat-list-item class="bold">+    Preguntas frecuentes <span class="default-spacer"></span></a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet>
+      <ng-content>
+      </ng-content>
+    </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>-->
+<!--<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false">
+    <div class="menu-sidenav">
+      <mat-toolbar >Menu</mat-toolbar>
+    </div>
+    <mat-nav-list >
+      <br><br><br>
+      <a mat-list-item>Búsqueda de empleos   <span class="default-spacer"></span><mat-icon>home  </mat-icon></a>
+      <a mat-list-item>Mis postulaciones   <span class="default-spacer"></span><mat-icon>work_outline</mat-icon></a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <span class="default-spacer"></span>
+      <span class="user-name">Bienvenido(a) !</span>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" class="user-logout">
+        Log Out
+      </button>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>-->
+<app-menu></app-menu>
+
+<mat-sidenav-container>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false">
+    <div class="menu-sidenav">
+      <mat-toolbar class="dark-green" >
+        <span class="fs-32 ff-roboto p-5"> E-wallet</span>
+      </mat-toolbar>
+    </div>
+    <mat-nav-list >
+    <a mat-list-item class="bold">+    Inicio  <span class="default-spacer"></span></a>
+    <a mat-list-item class="bold">+    Mis carteras   <span class="default-spacer"></span></a>
+    <a mat-list-item class="bold">+    Preguntas frecuentes <span class="default-spacer"></span></a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-content>
+
+    </ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

@@ -1,0 +1,25 @@
+.sidenav-container{
+  background-color: white;
+}
+.sidenav{
+  background-color: #a2bce0 !important;
+}
+.bold{
+  font-weight: bold !important;
+}
+.logo{
+  width: 3%;
+  height: 50%;
+}
+.fs-32{
+  font-size: 30px;
+}
+.ff-roboto{
+  font-family: Roboto;
+}
+.p-5{
+  padding-left: .5%;
+}
+.dark-green{
+  background-color: #0B5563 !important;
+}

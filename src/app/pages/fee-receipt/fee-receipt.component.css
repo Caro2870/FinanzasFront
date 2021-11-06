@@ -1,0 +1,52 @@
+.wallet-name{
+  text-align: center;
+}
+.container{
+  padding: 2% 8%;
+}
+.fs-50{
+  font-size: 3.5em;
+}
+.receipt-grid{
+  padding: 0% 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+.box{
+  width: 80%;
+  height: 140px;
+  margin: 5px 0px;
+  border-radius: 25px;
+  padding: 5%;
+}
+
+input{
+  width:  140px!important;
+}
+section div{
+  margin-top: 1%;
+}
+select{
+  width:  147px!important;
+}
+.white{
+  background-color: wheat;
+}
+.green{
+  background-color: #A2BCE0;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+h3{
+  font-weight: bold;
+}
+.larger{
+  height: 200px;
+}
+.field{
+  width: 80px;
+  height: 5px!important;
+}

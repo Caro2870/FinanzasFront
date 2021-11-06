@@ -33,6 +33,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDatepicker} from "@angular/material/datepicker";
 import {MatDatepickerToggle} from "@angular/material/datepicker";
 import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
+import { FeeReceiptComponent } from './pages/fee-receipt/fee-receipt.component';
+import { SidenavComponent } from './pages/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
     MenuComponent,
     IndexComponent,
     FooterComponent,
-    NewAccountComponent
+    NewAccountComponent,
+    FeeReceiptComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,6 @@
 .sidenav-container {
   height: 100%;
 }
-
 .sidenav {
   width: 200px;
   background: #2B6090;
@@ -92,4 +91,9 @@
 .logo{
   width: 3%;
   height: 50%;
+}
+.toolbar{
+  position: sticky;
+  z-index: 100;
+  top: 0;
 }
