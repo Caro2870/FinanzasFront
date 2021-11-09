@@ -1,0 +1,53 @@
+.big-container{
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  justify-content: space-around;
+  height: 80%;
+}
+.img-eperson{
+  width: 50%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.e-login{
+  width: 50%;
+  padding: 2% 5%;
+}
+.ta-center{
+  text-align: center;
+}
+.btn-login{
+  text-transform: capitalize;
+  background-color: #62819A;
+  height: 3rem;
+  width: 50%;
+  margin: 3%;
+}
+.fields{
+  display: flex;
+  flex-direction: column;
+}
+.center-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form{
+  padding: 0px 40px;
+}
+.fs-36{
+  font-size: 50px;
+}
+.login-screen{
+  height: 100vh;
+  width: 100vw;
+}
+.field{
+  margin: 0 !important;
+}
+mat-form-field-wrapper{
+  margin: 0 !important;
+  padding-bottom: 0.5em;
+}

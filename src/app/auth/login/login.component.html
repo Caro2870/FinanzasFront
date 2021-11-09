@@ -8,9 +8,8 @@
       <div class="form">
         <div class="fields">
           <mat-form-field appearance="outline">
-            <mat-label>Please enter email</mat-label>
+            <mat-label>Please enter user name</mat-label>
             <input matInput type="email"
-                   pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
                    required [(ngModel)]="nombreUsuario">
           </mat-form-field>
           <mat-form-field appearance="outline">
@@ -24,7 +23,7 @@
         </div>
       </div>
       <div class="center-button">
-        <button mat-raised-button color="primary" class="btn-login">LOGIN</button>
+        <button mat-raised-button color="primary" class="btn-login" (click)="onLogin()">LOGIN</button>
       </div>
       <a routerLink="../sign-up" class="ta-center" style="color: #1F86FF; text-decoration: none">Or create a new account</a>
     </div>

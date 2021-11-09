@@ -2,6 +2,7 @@
   <img src="assets/Logo.png" class="logo">
   <span class="fs-32 ff-roboto p-5"> E-wallet</span>
   <span class="example-spacer"></span>
-  <button mat-raised-button color="primary" class="btn-color" routerLink="../login">LOG IN</button>
-  <button mat-raised-button color="primary" class="btn-color" routerLink="../sign-up">SIGN UP</button>
+  <button mat-raised-button color="primary" class="btn-color" routerLink="../login" *ngIf="!isLogged">LOG IN</button>
+  <button mat-raised-button color="primary" class="btn-color" routerLink="../sign-up" *ngIf="!isLogged">SIGN UP</button>
+  <button mat-raised-button color="primary" class="btn-color" *ngIf="isLogged" (click)="onLogOut()" >LOG OUT</button>
 </mat-toolbar>

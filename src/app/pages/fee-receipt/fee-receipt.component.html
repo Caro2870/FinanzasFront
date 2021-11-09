@@ -28,6 +28,14 @@
           <input type="number"  required>
         </div>
         <div class="flex">
+          <span>(T) Tipo de Tasa (%)</span>
+          <select name="tasas" id="tipo">
+            <option value="efectiva">Efectiva</option>
+            <option value="nominal">Nominal</option>
+          </select>
+          <input class="shorter" type="number" required>
+        </div>
+        <div class="flex">
           <span>(P) Plazo de Tasa</span>
           <select name="tasas" id="tasas">
             <option value="di">Diario</option>
@@ -37,14 +45,25 @@
             <option value="trim">Trimestral</option>
             <option value="cuatrim">Cuatrimestral</option>
             <option value="sem">Semestral</option>
-            <option value="anu">Anual</option>
+            <option value="anu" selected>Anual</option>
             <option value="esp">Especial</option>
           </select>
           <input class="shorter" type="number" required>
         </div>
         <div class="flex">
-          <span>(TE) Tasa Efectiva (%)</span>
-          <input type="number" required>
+          <span>(PC) Período de Capital.	</span>
+          <select name="tasas" id="capitalizacion">
+            <option value="di">Diario</option>
+            <option value="quin">Quincenal</option>
+            <option value="men">Mensual</option>
+            <option value="bim">Bimestral</option>
+            <option value="trim">Trimestral</option>
+            <option value="cuatrim">Cuatrimestral</option>
+            <option value="sem">Semestral</option>
+            <option value="anu" >Anual</option>
+            <option value="esp">Especial</option>
+          </select>
+          <input class="shorter" type="number" required>
         </div>
         <div class="flex">
           <span>(FD) Fecha de Descuento</span>

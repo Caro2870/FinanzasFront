@@ -28,7 +28,6 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { FooterComponent } from './pages/footer/footer.component';
-import { NewAccountComponent } from './pages/new-account/new-account.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDatepicker} from "@angular/material/datepicker";
 import {MatDatepickerToggle} from "@angular/material/datepicker";
@@ -45,7 +44,6 @@ import { LandingComponent } from './pages/landing/landing.component';
     MenuComponent,
     IndexComponent,
     FooterComponent,
-    NewAccountComponent,
     FeeReceiptComponent,
     SidenavComponent,
     LandingComponent
