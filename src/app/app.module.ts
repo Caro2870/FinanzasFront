@@ -35,6 +35,7 @@ import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
 import { FeeReceiptComponent } from './pages/fee-receipt/fee-receipt.component';
 import { SidenavComponent } from './pages/sidenav/sidenav.component';
 import { LandingComponent } from './pages/landing/landing.component';
+import { MainComponent } from './pages/main/main.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LandingComponent } from './pages/landing/landing.component';
     FooterComponent,
     FeeReceiptComponent,
     SidenavComponent,
-    LandingComponent
+    LandingComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

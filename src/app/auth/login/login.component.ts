@@ -5,6 +5,8 @@ import {AuthService} from "../../services/auth.service";
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroupDirective, FormGroup, NgForm, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +19,7 @@ export class LoginComponent implements OnInit {
   isLoginFail = false;
   loginUsuario!: LoginUsuario;
   nombreUsuario!: string;
+  userData!: any;
   password!: string;
   roles: string[] = [];
   errMsj!: string;
@@ -26,7 +29,8 @@ export class LoginComponent implements OnInit {
     private tokenService: TokenService,
     private authService: AuthService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -50,7 +54,7 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Bienvenido ' + data.nombreUsuario, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/fee-receipt']);
+        console.log(this.nombreUsuario)
       },
       err => {
         this.isLogged = false;
@@ -61,6 +65,12 @@ export class LoginComponent implements OnInit {
         // console.log(err.error.message);
       }
     );
-  }
 
+    this.userService.getUserByUserName(this.nombreUsuario)
+      .subscribe((response:any) => {
+        this.userData = _.cloneDeep(response);
+        console.log(this.userData)
+        this.router.navigate([`user/${this.userData.id}/main`])
+      });
+  }
 }
