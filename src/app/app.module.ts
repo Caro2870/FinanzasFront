@@ -31,11 +31,13 @@ import { FooterComponent } from './pages/footer/footer.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDatepicker} from "@angular/material/datepicker";
 import {MatDatepickerToggle} from "@angular/material/datepicker";
-import {MAT_DATE_LOCALE, MatNativeDateModule} from "@angular/material/core";
+import {MAT_DATE_LOCALE, MatNativeDateModule, MatOptionModule} from "@angular/material/core";
 import { FeeReceiptComponent } from './pages/fee-receipt/fee-receipt.component';
 import { SidenavComponent } from './pages/sidenav/sidenav.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { MainComponent } from './pages/main/main.component';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { MainComponent } from './pages/main/main.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatOptionModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
     ToastrModule.forRoot(),
@@ -64,6 +67,7 @@ import { MainComponent } from './pages/main/main.component';
     ReactiveFormsModule,
     MatInputModule,
     MatDatepickerModule,
+    MatSelectModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,

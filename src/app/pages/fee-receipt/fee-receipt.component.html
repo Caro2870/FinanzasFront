@@ -1,4 +1,4 @@
-<app-sidenav>
+<app-sidenav *ngIf="isLoaded">
   <div class="container">
     <h1 class="wallet-name fs-50">{{wallet.name}}</h1>
     <section class="receipt-grid">
@@ -14,56 +14,56 @@
         </div>
         <div class="flex">
           <span>(TR) Total a Recibir (S/)	</span>
-          <input type="number"  required>
+          <input matInput [(ngModel)]="total_to_receive"  type="number" required>
         </div>
         <div class="flex">
           <span>(Rt) Retención (S/)	</span>
-          <input type="number"  required>
+          <input type="number"  [value]="getRetention()">
         </div>
       </div>
       <div class="box green">
         <h3>Tasa y Plazo</h3>
         <div class="flex">
           <span>(DA) Días por año</span>
-          <input type="number"  required>
+          <input type="text" value="360 días" readonly>
         </div>
         <div class="flex">
           <span>(T) Tipo de Tasa (%)</span>
-          <select name="tasas" id="tipo">
-            <option value="efectiva">Efectiva</option>
-            <option value="nominal">Nominal</option>
-          </select>
-          <input class="shorter" type="number" required>
+          <mat-select [(value)]="selected_rate_type" name="tasas" id="tipo">
+            <mat-option value="efectiva">Efectiva</mat-option>
+            <mat-option value="nominal">Nominal</mat-option>
+          </mat-select>
+          <input class="shorter" type="number" placeholder="13.5" required>
         </div>
         <div class="flex">
           <span>(P) Plazo de Tasa</span>
-          <select name="tasas" id="tasas">
-            <option value="di">Diario</option>
-            <option value="quin">Quincenal</option>
-            <option value="men">Mensual</option>
-            <option value="bim">Bimestral</option>
-            <option value="trim">Trimestral</option>
-            <option value="cuatrim">Cuatrimestral</option>
-            <option value="sem">Semestral</option>
-            <option value="anu" selected>Anual</option>
-            <option value="esp">Especial</option>
-          </select>
-          <input class="shorter" type="number" required>
+          <mat-select [(value)]="selected_rate_plazo" name="tasas" id="tasas">
+            <mat-option value="di">Diario</mat-option>
+            <mat-option value="quin">Quincenal</mat-option>
+            <mat-option value="men">Mensual</mat-option>
+            <mat-option value="bim">Bimestral</mat-option>
+            <mat-option value="trim">Trimestral</mat-option>
+            <mat-option value="cuatrim">Cuatrimestral</mat-option>
+            <mat-option value="sem">Semestral</mat-option>
+            <mat-option value="anu" >Anual</mat-option>
+            <mat-option value="esp">Especial</mat-option>
+          </mat-select>
+          <input class="shorter" type="number" [value]="getNumberOfDays(selected_rate_plazo)" readonly>
         </div>
-        <div class="flex">
-          <span>(PC) Período de Capital.	</span>
-          <select name="tasas" id="capitalizacion">
-            <option value="di">Diario</option>
-            <option value="quin">Quincenal</option>
-            <option value="men">Mensual</option>
-            <option value="bim">Bimestral</option>
-            <option value="trim">Trimestral</option>
-            <option value="cuatrim">Cuatrimestral</option>
-            <option value="sem">Semestral</option>
-            <option value="anu" >Anual</option>
-            <option value="esp">Especial</option>
-          </select>
-          <input class="shorter" type="number" required>
+        <div *ngIf="selected_rate_type=='nominal'" class="flex">
+          <span >(PC) Período de Capital.	</span>
+          <mat-select [(value)]="selected_capitalization" name="tasas" id="capitalizacion">
+            <mat-option value="di">Diario</mat-option>
+            <mat-option value="quin">Quincenal</mat-option>
+            <mat-option value="men">Mensual</mat-option>
+            <mat-option value="bim">Bimestral</mat-option>
+            <mat-option value="trim">Trimestral</mat-option>
+            <mat-option value="cuatrim">Cuatrimestral</mat-option>
+            <mat-option value="sem">Semestral</mat-option>
+            <mat-option value="anu" >Anual</mat-option>
+            <mat-option value="esp">Especial</mat-option>
+          </mat-select>
+          <input class="shorter" type="number" [value]="getNumberOfDays(selected_capitalization)" readonly>
         </div>
         <div class="flex">
           <span>(FD) Fecha de Descuento</span>
@@ -74,58 +74,47 @@
         <h3>Costes / Gastos Iniciales</h3>
         <div class="flex">
           <span>Motivo</span>
-          <select id="conceptoInicial">
-            <option value="Portes" selected="">Portes</option>
-            <option value="Fotocopias">Fotocopias</option>
-            <option value="Comisión de estudio">Comisión de estudio</option>
-            <option value="Comisión de desembolso">Comisión de desembolso</option>
-            <option value="Comisión de intermediación">Comisión de intermediación</option>
-            <option value="Gastos de administración">Gastos de administración</option>
-            <option value="Gastos notariales">Gastos notariales</option>
-            <option value="Gastos registrales">Gastos registrales</option>
-            <option value="Seguro">Seguro</option>
-            <option value="Otros gastos">Otros gastos</option>
-          </select>
+          <mat-select id="concepto_inicial" [(value)]="selected_initial_cost">
+            <mat-option *ngFor="let reason of reasons" [value]="reason.id">
+              {{reason.description}}
+            </mat-option>
+          </mat-select>
         </div>
         <div class="flex">
-          <span>Valor expresado en efectivo</span>
-          <input type="number"  required>
+          <span>Valor expresado en efectivo (S/)</span>
+          <input type="number"  [(ngModel)]="initial_cost_value" required>
           <div class="example-button-container">
-            <button mat-mini-fab class="plus-button" aria-label="Example icon button with a plus one icon">
+            <button mat-mini-fab class="plus-button"
+                    (click)="push_initial_adapted_costs(selected_initial_cost, initial_cost_value)">
               <mat-icon>add</mat-icon>
             </button>
           </div>
         </div>
         <div class="scrollable" style="overflow:scroll; height:100px; background-color: white">
-          <h4>1</h4><h4>2</h4><h4>3</h4><h4>4</h4><h4>5</h4><h4>6</h4><h4>7</h4><h4>8</h4><h4>9</h4><h4>10
-        </h4>
+          <h4 *ngFor="let initial_cost of initial_adapted_costs">{{initial_cost.reason}} - {{initial_cost.value}}</h4>
         </div>
       </div>
       <div class="box white larger">
-        <h3>Costes / Gastos Iniciales</h3>
+        <h3>Costes / Gastos Finales</h3>
         <div class="flex">
           <span>Motivo</span>
-          <select id="conceptoFinal">
-            <option value="Portes" selected="">Portes</option>
-            <option value="Fotocopias">Fotocopias</option>
-            <option value="Comisión de estudio">Comisión de estudio</option>
-            <option value="Comisión de desembolso">Comisión de desembolso</option>
-            <option value="Comisión de intermediación">Comisión de intermediación</option>
-            <option value="Gastos de administración">Gastos de administración</option>
-            <option value="Gastos notariales">Gastos notariales</option>
-            <option value="Gastos registrales">Gastos registrales</option>
-            <option value="Seguro">Seguro</option>
-            <option value="Otros gastos">Otros gastos</option>
-          </select>
+          <mat-select id="concepto_final" [(value)]="selected_final_cost">
+            <mat-option *ngFor="let reason of reasons" [value]="reason.id">
+              {{reason.description}}
+            </mat-option>
+          </mat-select>
         </div>
         <div class="flex">
           <span>Valor expresado en efectivo</span>
-          <input type="number"  required>
-            <button mat-mini-fab class="plus-button" aria-label="Example icon button with a plus one icon">
+          <input type="number" [(ngModel)]="final_cost_value" required>
+            <button mat-mini-fab class="plus-button"
+                    (click)="push_final_adapted_costs(selected_final_cost, final_cost_value)">
               <mat-icon>add</mat-icon>
             </button>
         </div>
-        <div class="scrollable" style="overflow:scroll; height:100px; background-color: white"></div>
+        <div class="scrollable" style="overflow:scroll; height:100px; background-color: white">
+          <h4 *ngFor="let final_cost of final_adapted_costs">{{final_cost.reason}} - {{final_cost.value}}</h4>
+        </div>
         </div>
     </section>
     <div class="buttons">
