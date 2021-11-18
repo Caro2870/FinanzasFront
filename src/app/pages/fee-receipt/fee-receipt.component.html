@@ -6,19 +6,19 @@
         <h3>Datos del Recibo por Honorarios</h3>
         <div class="flex">
           <span>(FE) Fecha de Emisión	</span>
-          <input type="date"  required>
+          <input type="date" [(ngModel)]="issue_date" required>
         </div>
         <div class="flex">
           <span>(FP) Fecha de Pago	</span>
-          <input type="date"  required>
+          <input type="date" [(ngModel)]="payment_date" required>
         </div>
         <div class="flex">
           <span>(TR) Total a Recibir (S/)	</span>
-          <input matInput [(ngModel)]="total_to_receive"  type="number" required>
+          <input matInput [(ngModel)]="net_worth"  type="number" required>
         </div>
         <div class="flex">
           <span>(Rt) Retención (S/)	</span>
-          <input type="number"  [value]="getRetention()">
+          <input type="number"  [value]="getRetention()" readonly>
         </div>
       </div>
       <div class="box green">
@@ -33,7 +33,7 @@
             <mat-option value="efectiva">Efectiva</mat-option>
             <mat-option value="nominal">Nominal</mat-option>
           </mat-select>
-          <input class="shorter" type="number" placeholder="13.5" required>
+          <input class="shorter" type="number" placeholder="13.5" [(ngModel)]="percentage" required>
         </div>
         <div class="flex">
           <span>(P) Plazo de Tasa</span>
@@ -67,7 +67,7 @@
         </div>
         <div class="flex">
           <span>(FD) Fecha de Descuento</span>
-          <input type="date"  required>
+          <input type="date" [disabled]="active_discount_date" [(ngModel)]="discount_date" required>
         </div>
       </div>
       <div class="box green larger">
@@ -118,8 +118,9 @@
         </div>
     </section>
     <div class="buttons">
-      <button mat-raised-button class="btn-color" routerLink="">AGREGAR</button>
-      <button mat-raised-button class="btn-color" routerLink="">VER RESULTADOS</button>
+      <button mat-raised-button class="btn-color" (click)="saveItems()">AGREGAR</button>
+      <button mat-raised-button class="btn-color" (click)="resetData()">LIMPIAR</button>
+      <button mat-raised-button class="btn-color">VER RESULTADOS</button>
     </div>
   </div>
 </app-sidenav>
