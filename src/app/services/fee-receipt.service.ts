@@ -29,4 +29,7 @@ export class FeeReceiptService {
   public updateFeeReceipt(feeReceipt: FeeReceipt, rateId: number, walletId: number, feeReceiptId: number): Observable<any> {
     return this.http.put<any>(`${this.basePath}/rates/${rateId}/wallets/${walletId}/feeReceipts/${feeReceiptId}`, feeReceipt);
   }
+  public getReceiptsByWalletId(walletId: number){
+    return this.http.get<any>(`${this.basePath}/wallets/${walletId}/feeReceipts`)
+  }
 }

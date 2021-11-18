@@ -11,6 +11,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './auth/login/login.component';
+import {
+  CapitalizationPeriodDialog,
+  DaysPerYearDialog, DiscountDateDialog, FinalReasonDialog,
+  IssueDateDialog, PlazoDeTasaDialog,
+  RetentionDialog, StartingReasonDialog, TasaEfectivaDialog,
+  TotalToReceiveDialog, ValueExpressedDialog
+} from "./pages/fee-receipt/fee-receipt.component";
 import { RegistroComponent } from './auth/registro/registro.component';
 import { MenuComponent } from './menu/menu/menu.component';
 import { IndexComponent } from './index/index.component';
@@ -21,7 +28,6 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
-import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
@@ -37,7 +43,8 @@ import { SidenavComponent } from './pages/sidenav/sidenav.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { MainComponent } from './pages/main/main.component';
 import {MatSelectModule} from '@angular/material/select';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import {PaymentDateDialog} from "./pages/fee-receipt/fee-receipt.component";
 
 @NgModule({
   declarations: [
@@ -50,7 +57,19 @@ import {MatSelectModule} from '@angular/material/select';
     FeeReceiptComponent,
     SidenavComponent,
     LandingComponent,
-    MainComponent
+    MainComponent,
+    IssueDateDialog,
+    PaymentDateDialog,
+    TotalToReceiveDialog,
+    RetentionDialog,
+    DaysPerYearDialog,
+    PlazoDeTasaDialog,
+    TasaEfectivaDialog,
+    DiscountDateDialog,
+    StartingReasonDialog,
+    FinalReasonDialog,
+    ValueExpressedDialog,
+    CapitalizationPeriodDialog,
   ],
   imports: [
     BrowserModule,

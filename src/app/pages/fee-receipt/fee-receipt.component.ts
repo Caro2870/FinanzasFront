@@ -9,6 +9,8 @@ import {Rate} from "../../models/rate";
 import {FeeReceiptService} from "../../services/fee-receipt.service";
 import {FeeReceipt} from "../../models/fee-receipt";
 import {CostService} from "../../services/cost.service";
+import {MatDialog} from "@angular/material/dialog";
+import {Wallet} from "../../models/wallet";
 
 @Component({
   selector: 'app-fee-receipt',
@@ -19,8 +21,10 @@ export class FeeReceiptComponent implements OnInit {
   // @ts-ignore
   // @ts-ignore
   reasons: Array<any> = []
+  filtered_reasons:  Array<any> = []
   initialCosts: Array<Cost> = []
   finalCosts: Array<Cost> = []
+  receipts: Array<any> = []
   selected_rate_plazo = 'anu';
   selected_capitalization ='di';
   isLoaded: boolean = false;
@@ -33,6 +37,7 @@ export class FeeReceiptComponent implements OnInit {
   selected_initial_cost = 1;
   selected_final_cost =1;
   walletId: any;
+  userId: any;
   isRateId: boolean = false;
   isFeeReceiptId: boolean = false;
   //Rate
@@ -48,7 +53,8 @@ export class FeeReceiptComponent implements OnInit {
   net_worth :any
     //retention:get_retention
 
-
+  wallet_currency: any
+  wallet_is_empty: any
 
   push_initial_adapted_costs(id_reason: number, value: number){
     let reason = this.getReasonById(Number(id_reason))
@@ -71,7 +77,8 @@ export class FeeReceiptComponent implements OnInit {
               private reasonService: ReasonService,
               private rateService: RateService,
               private feeReceiptService: FeeReceiptService,
-              private costService: CostService) { }
+              private costService: CostService,
+              public dialog: MatDialog) { }
 
 
   ngOnInit(): void {
@@ -83,8 +90,31 @@ export class FeeReceiptComponent implements OnInit {
     this.reasonService.getReasons()
       .subscribe((response: any ) =>{
         this.reasons = response.content;
+        this.filtered_reasons.push(this.reasons[0])
+        this.filtered_reasons.push(this.reasons[5])
+        this.filtered_reasons.push(this.reasons[9])
         console.log(this.reasons);
       });
+  }
+
+  getFeeReceiptsByWalletId(){
+    this.feeReceiptService.getReceiptsByWalletId(this.walletId)
+      .subscribe((response: any ) =>{
+          this.receipts = response.content;
+          //this.active_discount_date = (this.receipts!=[])
+          console.log(this.receipts)
+          //this.discount_date = this.receipts[0].discount_date
+        }
+      )
+  }
+
+  updateWallet(){
+    console.log("RESULTADOS DEL WALLET")
+    this.walletApiService.updateWallet(this.userId, this.walletId,
+      new Wallet(this.wallet_currency,this.wallet.description, this.wallet.name, this.wallet.tir,
+        this.wallet.total_value)).subscribe(data=>{
+      console.log(data)
+    })
   }
 
   getRetention(){
@@ -115,12 +145,15 @@ export class FeeReceiptComponent implements OnInit {
   }
 
   getWallet(): void{
+    this.userId = Number(this.route.snapshot.paramMap.get('id'));
     this.walletId = Number(this.route.snapshot.paramMap.get('walletId'));
     this.walletApiService.getWalletById(this.walletId)
       .subscribe((response:any)=>{
         this.wallet = response;
         console.log(this.walletId)
         console.log(this.wallet)
+        this.wallet_currency =  response.currency_type
+        this.getFeeReceiptsByWalletId();
         this.isLoaded = true;
       })
   }
@@ -168,6 +201,7 @@ export class FeeReceiptComponent implements OnInit {
         console.log(data)
     })
   }
+
   saveCosts(fee_receipt_id: number){
     if(this.isFeeReceiptId){
       for (let _i = 0; _i < this.initialCosts.length; _i++) {
@@ -211,7 +245,7 @@ export class FeeReceiptComponent implements OnInit {
     this.payment_date=""
     this.net_worth=""
     this.percentage = ""
-    this.discount_date=""
+    //this.discount_date=""
     this.initial_cost_value=""
     this.final_cost_value=""
     this.final_adapted_costs =[]
@@ -219,4 +253,157 @@ export class FeeReceiptComponent implements OnInit {
     this.finalCosts=[]
     this.initialCosts=[]
   }
+  deleteInitialItem(id: number){
+    this.initial_adapted_costs.splice(id, 1)
+    this.initialCosts.splice(id, 1)
+    console.log("Hola, ",id)
+  }
+  deleteFinalItem(id: number){
+    this.final_adapted_costs.splice(id, 1)
+    this.finalCosts.splice(id, 1)
+    console.log("Hola, ",id)
+  }
+  openIssueDateDialog() {
+    const dialogRef = this.dialog.open(IssueDateDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openPaymentDateDialog() {
+    const dialogRef = this.dialog.open(PaymentDateDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openTotalToReceiveDialog() {
+    const dialogRef = this.dialog.open(TotalToReceiveDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openRetentionDialog() {
+    const dialogRef = this.dialog.open(RetentionDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openDaysPerYearDialog() {
+    const dialogRef = this.dialog.open(DaysPerYearDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openPlazoDeTasaDialog() {
+    const dialogRef = this.dialog.open(PlazoDeTasaDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openTasaEfectivaDialog() {
+    const dialogRef = this.dialog.open(TasaEfectivaDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openDiscountDateDialog() {
+    const dialogRef = this.dialog.open(DiscountDateDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openStartingReasonDialog() {
+    const dialogRef = this.dialog.open(StartingReasonDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openFinalReasonDialog() {
+    const dialogRef = this.dialog.open(FinalReasonDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openValueExpressedDialog() {
+    const dialogRef = this.dialog.open(ValueExpressedDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openCapitalizationPeriodDialog() {
+    const dialogRef = this.dialog.open(CapitalizationPeriodDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
+@Component({
+  selector: 'issue-date-dialog',
+  templateUrl: 'issue-date-dialog.html',
+})
+export class IssueDateDialog {}
+
+@Component({
+  selector: 'payment-date-dialog',
+  templateUrl: 'payment-date-dialog.html',
+})
+export class PaymentDateDialog {}
+
+@Component({
+  selector: 'total-to-receive-dialog',
+  templateUrl: 'total-to-receive-dialog.html',
+})
+export class TotalToReceiveDialog {}
+
+@Component({
+  selector: 'retention-dialog',
+  templateUrl: 'retention-dialog.html',
+})
+export class RetentionDialog {}
+
+@Component({
+  selector: 'days-per-year-dialog',
+  templateUrl: 'days-per-year-dialog.html',
+})
+export class DaysPerYearDialog {}
+
+@Component({
+  selector: 'plazo-de-tasa-dialog',
+  templateUrl: 'plazo-de-tasa-dialog.html',
+})
+export class PlazoDeTasaDialog {}
+
+@Component({
+  selector: 'tasa-efectiva-dialog',
+  templateUrl: 'tasa-efectiva-dialog.html',
+})
+export class TasaEfectivaDialog {}
+
+@Component({
+  selector: 'discount-date-dialog',
+  templateUrl: 'discount-date-dialog.html',
+})
+export class DiscountDateDialog {}
+
+@Component({
+  selector: 'starting-reason-dialog',
+  templateUrl: 'starting-reason-dialog.html',
+})
+export class StartingReasonDialog {}
+
+@Component({
+  selector: 'final-reason-dialog',
+  templateUrl: 'final-reason-dialog.html',
+})
+export class FinalReasonDialog {}
+
+@Component({
+  selector: 'value-expressed-dialog',
+  templateUrl: 'value-expressed-dialog.html',
+})
+export class ValueExpressedDialog {}
+
+@Component({
+  selector: 'capitalization-period-dialog',
+  templateUrl: 'capitalization-period-dialog.html',
+})
+export class CapitalizationPeriodDialog {}

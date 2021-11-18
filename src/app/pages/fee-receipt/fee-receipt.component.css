@@ -27,6 +27,15 @@
 }
 .scrollable{
 }
+span{
+  cursor: pointer;
+}
+.ta-right{
+  text-align: right;
+}
+.pointer{
+  cursor: pointer;
+}
 .box{
   width: 85%;
   height: 170px;
@@ -84,4 +93,9 @@ span{
 }
 .shorter{
   width: 66px !important;
+}
+.scrollable-content{
+  display: flex;
+  justify-content: space-between;
+  padding: 1% 2%;
 }
