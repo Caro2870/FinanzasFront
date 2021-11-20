@@ -1,0 +1,60 @@
+.box {
+  width: 70%;
+  height: auto;
+  margin: auto;
+  border-radius: 25px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  border: 1px solid gray;
+  cursor: pointer;
+}
+.box:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+.box-1{
+  width: 100%;
+  height: auto;
+  padding-left: 5%;
+  margin: auto;
+}
+.box-2{
+  width: 60%;
+  height: auto;
+  margin: auto;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  border: 1px solid gray;
+}
+.buttons{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+.buttons button{
+  background-color: #62819A;
+  color: white;
+  font-size: 1.2em;
+}
+.circular-img{
+  max-width: 35%;
+  border-radius: 50%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.container{
+  min-height: 550px;
+  padding-top: 15px;
+  margin: auto;
+  width: 50%;
+}
+.title{
+  text-align: center;
+}
+.wallet-img{
+  max-width: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
