@@ -32,4 +32,8 @@ export class WalletService {
     return this.http.put<any>(`${this.basePath}/users/${userId}/wallets/${walletId}`, wallet)
       .pipe(retry(2), catchError(this.handleError));
   }
+  getWalletByUserIdAndWalletId(userId: number, walletId: number){
+    return this.http.get<any>(`${this.basePath}/usuarios/${userId}/wallets/${walletId}/wallets`)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 }

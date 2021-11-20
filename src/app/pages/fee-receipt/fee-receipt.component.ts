@@ -101,9 +101,14 @@ export class FeeReceiptComponent implements OnInit {
     this.feeReceiptService.getReceiptsByWalletId(this.walletId)
       .subscribe((response: any ) =>{
           this.receipts = response.content;
-          //this.active_discount_date = (this.receipts!=[])
           console.log(this.receipts)
-          //this.discount_date = this.receipts[0].discount_date
+          this.active_discount_date = (this.receipts[0]==null)
+        console.log(this.active_discount_date)
+        if(!this.active_discount_date)  {
+          this.discount_date = this.receipts[0].rate.discount_date
+          this.discount_date = this.discount_date.substring(0,10)
+        }
+          console.log(this.discount_date)
         }
       )
   }
@@ -147,7 +152,7 @@ export class FeeReceiptComponent implements OnInit {
   getWallet(): void{
     this.userId = Number(this.route.snapshot.paramMap.get('id'));
     this.walletId = Number(this.route.snapshot.paramMap.get('walletId'));
-    this.walletApiService.getWalletById(this.walletId)
+    this.walletApiService.getWalletByUserIdAndWalletId(this.userId,this.walletId)
       .subscribe((response:any)=>{
         this.wallet = response;
         console.log(this.walletId)

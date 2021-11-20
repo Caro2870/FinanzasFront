@@ -69,7 +69,7 @@
         </div>
         <div class="flex">
           <span (click)="openDiscountDateDialog()">(FD) Fecha de Descuento</span>
-          <input type="date" [disabled]="active_discount_date" [(ngModel)]="discount_date" required>
+          <input type="date" [disabled]="!active_discount_date" [(ngModel)]="discount_date" required>
         </div>
       </div>
       <div class="box green larger">
