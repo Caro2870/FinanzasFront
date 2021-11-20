@@ -45,6 +45,7 @@ import { MainComponent } from './pages/main/main.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {PaymentDateDialog} from "./pages/fee-receipt/fee-receipt.component";
+import {YouTubePlayerModule} from "@angular/youtube-player";
 
 @NgModule({
   declarations: [
@@ -71,33 +72,34 @@ import {PaymentDateDialog} from "./pages/fee-receipt/fee-receipt.component";
     ValueExpressedDialog,
     CapitalizationPeriodDialog,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatOptionModule,
-    BrowserAnimationsModule,
-    MatCheckboxModule,
-    ToastrModule.forRoot(),
-    HttpClientModule,
-    FormsModule,
-    MatIconModule,
-    MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatListModule,
-    BrowserModule,
-    MatNativeDateModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatCardModule
-    // ToastrModule added
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MatOptionModule,
+        BrowserAnimationsModule,
+        MatCheckboxModule,
+        ToastrModule.forRoot(),
+        HttpClientModule,
+        FormsModule,
+        MatIconModule,
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatSelectModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatListModule,
+        BrowserModule,
+        MatNativeDateModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatCardModule,
+        YouTubePlayerModule,
+        // ToastrModule added
+    ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
