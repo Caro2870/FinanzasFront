@@ -46,6 +46,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {PaymentDateDialog} from "./pages/fee-receipt/fee-receipt.component";
 import {YouTubePlayerModule} from "@angular/youtube-player";
+import { WalletComponent } from './pages/wallet/wallet.component';
+import { NewWalletComponent } from './pages/new-wallet/new-wallet.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import {YouTubePlayerModule} from "@angular/youtube-player";
     FinalReasonDialog,
     ValueExpressedDialog,
     CapitalizationPeriodDialog,
+    WalletComponent,
+    NewWalletComponent,
   ],
     imports: [
         BrowserModule,

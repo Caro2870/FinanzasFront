@@ -1,4 +1,4 @@
-.big-container{
+.big-container {
   display: flex;
   margin: 0;
   padding: 0;
@@ -7,29 +7,29 @@
   height: 80%;
   background-color: #A2BCE0;
 }
-.buttons{
+.buttons {
   background-color: #62819A;
   color: white;
   font-size: 1.2em;
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.container{
+.container {
   padding-top: 1%;
   padding-left: 4.5%;
   padding-right: 12%;
   width: 50%;
 }
-.img-eperson{
+.img-eperson {
   width: 50%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-.landing-screen{
+.landing-screen {
   height: 100vh;
   width: 100vw;
 }
-.title{
+.title {
   margin-top: 1%;
   font-size: 3.5em;
   font-weight: bold;

@@ -7,17 +7,17 @@
   border: 1px solid gray;
   cursor: pointer;
 }
-.box:hover{
+.box:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
-.box-1{
+.box-1 {
   width: 100%;
   height: auto;
   padding-left: 5%;
   margin: auto;
 }
-.box-2{
+.box-2 {
   width: 60%;
   height: auto;
   margin: auto;
@@ -26,34 +26,34 @@
   box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
   border: 1px solid gray;
 }
-.buttons{
+.buttons {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   justify-content: center;
 }
-.buttons button{
+.buttons button {
   background-color: #62819A;
   color: white;
   font-size: 1.2em;
 }
-.circular-img{
+.circular-img {
   max-width: 35%;
   border-radius: 50%;
   margin-top: 15px;
   margin-bottom: 15px;
 }
-.container{
+.container {
   min-height: 550px;
   padding-top: 15px;
   margin: auto;
   width: 50%;
 }
-.title{
+.title {
   text-align: center;
 }
-.wallet-img{
+.wallet-img {
   max-width: 100%;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;

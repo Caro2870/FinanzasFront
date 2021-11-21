@@ -1,0 +1,48 @@
+.box{
+  width: 60%;
+  height: auto;
+  border-radius: 25px;
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+  padding: 3%;
+  border: 1px dotted grey;
+  margin: 15px auto;
+  background-color: wheat;
+}
+.box:hover{
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+.button{
+  background-color: #62819A;
+  color: white;
+  height: 36px;
+}
+.container{
+  padding-right: 15%;
+  padding-left: 15%;
+  margin: auto;
+  min-height: 490px;
+}
+.item-1 {
+  grid-column: 3;
+}
+.item-2 {
+  grid-column: 4;
+}
+.size {
+  font-size: 40px;
+}
+.text {
+  text-align: center;
+  padding-top: 20%;
+}
+.title {
+  text-align: center;
+  font-size: 3.5em;
+}
+.wallet {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 10% 12% 56% 12% 10%;
+  margin-top: 30px;
+}

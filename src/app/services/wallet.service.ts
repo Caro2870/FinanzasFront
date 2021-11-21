@@ -36,4 +36,8 @@ export class WalletService {
     return this.http.get<any>(`${this.basePath}/users/${userId}/wallets/`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+  createWalletByUserId(userId:number, item:any): Observable<Wallet> {
+    return this.http.post<any>(`${this.basePath}/wallets/user/${userId}/`, JSON.stringify(item), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 }
