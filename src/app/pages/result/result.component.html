@@ -2,31 +2,31 @@
   <div class="container">
     <h1 class="title">Resultados</h1>
     <div class="box">
-      <p class="item-1">Valor total a recibir por la cartera:</p>
-      <p class="item-2">{{this.walletTotalValue}}</p>
-      <p class="item-1">TCEA (Tasa de costo efectivo anual de la cartera):</p>
-      <p class="item-2">{{this.walletTir}}%</p>
+      <h5 class="item-1">Valor total a recibir por la cartera:</h5>
+      <h5 class="item-2">{{this.walletTotalValue}}</h5>
+      <h5 class="item-1">TCEA (Tasa de costo efectivo anual de la cartera):</h5>
+      <h5 class="item-2">{{this.walletTir}}%</h5>
     </div>
-    <div>
+    <div class="tb-container">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="discountDate">
-          <th mat-header-cell *matHeaderCellDef> Fecha Desc. </th>
+          <th mat-header-cell *matHeaderCellDef>Fecha Desc. </th>
           <td mat-cell *matCellDef="let element"> {{element.rate.discount_date | date:'dd/MM/yyyy'}} </td>
         </ng-container>
         <ng-container matColumnDef="nominal_value">
-          <th mat-header-cell *matHeaderCellDef> Val. nom. </th>
+          <th mat-header-cell *matHeaderCellDef class="center"> Val. nom. </th>
           <td mat-cell *matCellDef="let element"> {{element.net_worth.toFixed(2)}} </td>
         </ng-container>
         <ng-container matColumnDef="payment_date">
-          <th mat-header-cell *matHeaderCellDef> Fecha Ven. </th>
+          <th mat-header-cell *matHeaderCellDef class="center"> Fecha Ven. </th>
           <td mat-cell *matCellDef="let element"> {{element.payment_date | date:'dd/MM/yyyy'}} </td>
         </ng-container>
         <ng-container matColumnDef="days">
-          <th mat-header-cell *matHeaderCellDef> Días </th>
+          <th mat-header-cell *matHeaderCellDef class="center"> Días </th>
           <td mat-cell *matCellDef="let element"> {{element.dias}} </td>
         </ng-container>
         <ng-container matColumnDef="retention">
-          <th mat-header-cell *matHeaderCellDef> Retención </th>
+          <th mat-header-cell *matHeaderCellDef class="center"> Retención </th>
           <td mat-cell *matCellDef="let element"> {{element.retention.toFixed(2)}} </td>
         </ng-container>
         <ng-container matColumnDef="discount_rate">

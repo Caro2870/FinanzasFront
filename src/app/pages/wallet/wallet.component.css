@@ -1,5 +1,5 @@
 .box {
-  width: 80%;
+  width: 100%;
   height: auto;
   border-radius: 25px;
   box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
@@ -35,14 +35,14 @@
 }
 .item-w-1 {
   grid-column: 1;
-  font-size: 1.4em;
+  font-size: 1.2em;
 }
 .item-w-2 {
   grid-column: 2;
   background-color: white;
   border-radius: 8px;
   padding-left: 12px;
-  font-size: 1.4em;
+  font-size: 1.2em;
   height: 22px;
 }
 .mini-box {

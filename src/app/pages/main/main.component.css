@@ -1,7 +1,7 @@
 .box {
   width: 70%;
   height: auto;
-  margin: auto;
+  margin: 7% auto auto auto;
   border-radius: 25px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
   border: 1px solid gray;

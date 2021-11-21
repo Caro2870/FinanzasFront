@@ -11,7 +11,6 @@
 
 .sidenav .mat-toolbar {
   background: #0A1128;
-
 }
 
 .mat-toolbar.mat-primary {
@@ -91,9 +90,15 @@
 .logo{
   width: 3%;
   height: 50%;
+  cursor: pointer;
+  margin-right: 0.6%;
 }
 .toolbar{
   position: sticky;
   z-index: 100;
   top: 0;
+}
+a{
+  text-decoration: none;
+  color: white;
 }
