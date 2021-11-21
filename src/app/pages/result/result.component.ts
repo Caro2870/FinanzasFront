@@ -19,8 +19,7 @@ export class ResultComponent implements OnInit {
   walletTir!: any;
   walletTotalValue!: any;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['id',
-    'discountDate',
+  displayedColumns: string[] = ['discountDate',
     'nominal_value',
     'payment_date',
     'days',

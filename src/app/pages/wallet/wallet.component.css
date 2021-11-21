@@ -1,5 +1,5 @@
 .box {
-  width: 60%;
+  width: 80%;
   height: auto;
   border-radius: 25px;
   box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
@@ -47,7 +47,7 @@
 }
 .mini-box {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 27% 63%;
 }
 .size {
   font-size: 40px;
