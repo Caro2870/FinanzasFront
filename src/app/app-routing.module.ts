@@ -9,6 +9,7 @@ import {LandingComponent} from "./pages/landing/landing.component";
 import {MainComponent} from "./pages/main/main.component";
 import {WalletComponent} from "./pages/wallet/wallet.component";
 import {ResultComponent} from "./pages/result/result.component";
+import {QuestionsComponent} from "./pages/questions/questions.component";
 
 const routes: Routes = [
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'sign-up', component: RegistroComponent },
   { path: 'user/:id/main', component: MainComponent },
   { path: 'user/:id/wallets', component: WalletComponent },
+  { path: 'user/:id/qa', component: QuestionsComponent },
   { path: 'user/:id/wallets/:walletId', component: FeeReceiptComponent },
   { path: 'user/:id/wallets/:walletId/results', component: ResultComponent },
 

@@ -55,32 +55,32 @@
   <div class="big-container">
     <img src="assets/e-person.png" class="img-eperson">
     <div class="e-login">
-      <h1 class="ta-center fs-36">Create new account </h1>
-      <h2 class="ta-center">Already registered? <a routerLink="../login" style="color: #1F86FF; text-align: center; text-decoration: none">Log in</a>
+      <h1 class="ta-center fs-36">Crear nueva cuenta </h1>
+      <h2 class="ta-center">¿Ya está registrado? <a routerLink="../login" style="color: #1F86FF; text-align: center; text-decoration: none">Log in</a>
       </h2>
       <div class="form">
         <div class="fields">
           <mat-form-field appearance="outline" class="field">
-            <mat-label>Please enter your name</mat-label>
+            <mat-label>Ingresa tu nombre</mat-label>
             <input matInput required [(ngModel)]="nombre">
-            <mat-error>Please complete this field</mat-error>
+            <mat-error>Complete este campo</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline" class="field">
-            <mat-label>Please enter your user name</mat-label>
+            <mat-label>Ingresa tu nombre de usuario</mat-label>
             <input matInput required [(ngModel)]="nombreUsuario">
-            <mat-error>Please complete this field</mat-error>
+            <mat-error>Complete este campo</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline" class="field">
-            <mat-label>Please enter email</mat-label>
+            <mat-label>Ingresa tu correo electrónico</mat-label>
             <input matInput type="email"
                    pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
                    required [(ngModel)]="email">
-            <mat-error>Please enter a valid email address</mat-error>
+            <mat-error>Ingrese un correo electrónico valido</mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline" class="field">
-            <mat-label>Please enter password</mat-label>
+            <mat-label>Ingresa tu contraseña</mat-label>
             <input matInput type="password" required [(ngModel)]="password">
-            <mat-error>Please complete this field</mat-error>
+            <mat-error>Complete este campo</mat-error>
           </mat-form-field>
           <!--          <mat-form-field appearance="outline" class="field">
                       <mat-label>Please enter date of birth</mat-label>

@@ -29,4 +29,7 @@ export class SidenavComponent implements OnInit {
   navigateToWallets(): void {
     this.router.navigate([`/user/${this.userId}/wallets`]).then(() => null);
   }
+  navigateToQa(): void {
+    this.router.navigate([`/user/${this.userId}/qa`]).then(() => null);
+  }
 }
