@@ -3,9 +3,9 @@
     <h1 class="title">Resultados</h1>
     <div class="box">
       <p class="item-1">Valor total a recibir por la cartera:</p>
-      <p class="item-2">{{this.wallet.total_value.toFixed(2)}}</p>
+      <p class="item-2">{{this.walletTotalValue}}</p>
       <p class="item-1">TCEA (Tasa de costo efectivo anual de la cartera):</p>
-      <p class="item-2">{{(this.wallet.tir*100).toFixed(7)}}%</p>
+      <p class="item-2">{{this.walletTir}}%</p>
     </div>
     <div>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -68,6 +68,9 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+    </div>
+    <div class="buttons" (click)="navigateToWallet()">
+      <button mat-raised-button> Volver </button>
     </div>
   </div>
 </app-sidenav>

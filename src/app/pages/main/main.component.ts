@@ -68,7 +68,7 @@ export class MainComponent implements OnInit {
   navigateToWallet(): void {
     this.router.navigate([`/user/${this.userId}/wallets/${this.walletId}`]).then(() => null);
   }
-  navigateToAllWallets(): void {
+  navigateToAllWalletsByUserId(): void {
     this.router.navigate([`/user/${this.userId}/wallets`]).then(() => null);
   }
 }

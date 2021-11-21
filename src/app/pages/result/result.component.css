@@ -9,10 +9,17 @@
   display: grid;
   grid-template-columns: 70% 30%;
 }
-.button {
+.buttons {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+.buttons button {
   background-color: #62819A;
   color: white;
-  height: 36px;
+  font-size: 1.2em;
 }
 .container {
   width: 98%;

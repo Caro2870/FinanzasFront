@@ -51,7 +51,10 @@
   width: 50%;
 }
 .title {
+  margin-top: 20px;
+  margin-bottom: 25px;
   text-align: center;
+  font-size: 3.5em;
 }
 .wallet-img {
   max-width: 100%;

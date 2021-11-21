@@ -16,6 +16,8 @@ export class ResultComponent implements OnInit {
   walletId!: number;
   userId!: number;
   wallet!: any;
+  walletTir!: any;
+  walletTotalValue!: any;
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['id',
     'discountDate',
@@ -58,6 +60,11 @@ export class ResultComponent implements OnInit {
           return;
         }
         this.wallet = _.cloneDeep(response);
+        this.walletTotalValue = this.wallet.total_value.toFixed(2);
+        this.walletTir = (this.wallet.tir*100).toFixed(7);
       });
+  }
+  navigateToWallet(): void {
+    this.router.navigate([`/user/${this.userId}/wallets/${this.walletId}`]).then(() => null);
   }
 }

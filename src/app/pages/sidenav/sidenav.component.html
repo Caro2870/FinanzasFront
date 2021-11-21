@@ -58,8 +58,8 @@
       </mat-toolbar>
     </div>
     <mat-nav-list >
-    <a mat-list-item class="bold">+    Inicio  <span class="default-spacer"></span></a>
-    <a mat-list-item class="bold">+    Mis carteras   <span class="default-spacer"></span></a>
+    <a mat-list-item class="bold" (click)="navigateToMain()">+    Inicio  <span class="default-spacer"></span></a>
+    <a mat-list-item class="bold" (click)="navigateToWallets()">+    Mis carteras   <span class="default-spacer"></span></a>
     <a mat-list-item class="bold">+    Preguntas frecuentes <span class="default-spacer"></span></a>
     </mat-nav-list>
   </mat-sidenav>

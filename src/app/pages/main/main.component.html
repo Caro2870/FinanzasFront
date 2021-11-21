@@ -1,7 +1,7 @@
 <app-sidenav>
   <div class="container">
-    <div class="title">
-      <h1 *ngIf="isLoaded">Bienvenido(a) {{userData.nombreUsuario.toUpperCase()}}</h1>
+    <div>
+      <h1 *ngIf="isLoaded" class="title">Bienvenido(a) {{userData.nombreUsuario.toUpperCase()}}</h1>
     </div>
     <div *ngIf="!isEmpty">
       <div class="box" (click)="navigateToWallet()">
@@ -15,7 +15,7 @@
           <h3 *ngIf="!wallet.currency_type">Moneda en dólares ($)</h3>
         </div>
       </div>
-      <div class="buttons" (click)="navigateToAllWallets()">
+      <div class="buttons" (click)="navigateToAllWalletsByUserId()">
         <button mat-raised-button>
           Todas mis carteras
           <i class='fas fa-arrow-right'></i>
@@ -27,7 +27,7 @@
         <img class="circular-img" src="https://cdn.pixabay.com/photo/2017/03/21/02/00/pencil-2160915_960_720.png">
         <h3 class="text-subtitle">Aún no has creado una cartera, dirígete a la sección Mis Carteras y crea tu primera cartera</h3>
       </div>
-      <div class="buttons" (click)="navigateToAllWallets()">
+      <div class="buttons" (click)="navigateToAllWalletsByUserId()">
         <button mat-raised-button>
           Mis carteras
           <i class='fas fa-arrow-right'></i>
