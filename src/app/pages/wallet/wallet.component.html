@@ -1,0 +1,34 @@
+<app-sidenav>
+  <div class="wallet">
+    <h1 class="title item-1">Mis Carteras</h1>
+    <button mat-raised-button class="button item-2" (click)="openDialog()">NUEVA CARTERA</button>
+  </div>
+  <div class="container">
+    <div *ngIf="this.len == 0" class="text">
+      <mat-icon class="size">sentiment_very_dissatisfied</mat-icon>
+      <p>No se encontró ninguna cartera.<br>Comienza creando tu primera cartera.</p>
+    </div>
+    <div *ngIf="this.len != 0">
+      <div *ngFor="let wallet of wallets" (click)="navigateToWallet(wallet.id)">
+        <div *ngIf="!wallet.currency_type" class="box color-1">
+          <h2>{{wallet.name.toUpperCase()}}</h2>
+          <div class="mini-box">
+            <p class="item-w-1">Descripción:</p>
+            <p class="item-w-2">{{wallet.description}}</p>
+            <p class="item-w-1">Tipo de moneda:</p>
+            <p class="item-w-2">Dólares ($)</p>
+          </div>
+        </div>
+        <div *ngIf="wallet.currency_type" class="box color-2">
+          <h2>{{wallet.name.toUpperCase()}}</h2>
+          <div class="mini-box">
+            <p class="item-w-1">Descripción:</p>
+            <p class="item-w-2">{{wallet.description}}</p>
+            <p class="item-w-1">Tipo de moneda:</p>
+            <p class="item-w-2">Soles (S/)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-sidenav>

@@ -118,6 +118,7 @@ export class FeeReceiptComponent implements OnInit {
     this.walletApiService.updateWallet(this.userId, this.walletId,
       new Wallet(this.wallet_currency,this.wallet.description, this.wallet.name, this.wallet.tir,
         this.wallet.total_value)).subscribe(data=>{
+      this.router.navigate([`/user/${this.userId}/wallets/${this.walletId}/results`]).then(() => null);
       console.log(data)
     })
   }

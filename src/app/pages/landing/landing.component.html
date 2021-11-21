@@ -1,8 +1,18 @@
 <div class="landing-screen">
-<app-menu></app-menu>
-<div class="big-container">
-  <div class="container"></div>
-  <img src="assets/e-person.png" class="img-eperson">
-</div>
-<app-footer></app-footer>
+  <app-menu></app-menu>
+  <div class="big-container">
+    <div class="container">
+      <h1 class="title">Una cartera de</h1>
+      <h1 class="title">descuentos de</h1>
+      <h1 class="title">recibo para ti</h1>
+      <button mat-raised-button class="buttons" (click)="navigateToSignUp()">REGÍSTRATE</button>
+      <youtube-player videoId=""
+                      suggestedQuality="highres"
+                      [height]="253"
+                      [width]="450">
+      </youtube-player>
+    </div>
+    <img src="assets/e-person.png" class="img-eperson">
+  </div>
+  <app-footer></app-footer>
 </div>

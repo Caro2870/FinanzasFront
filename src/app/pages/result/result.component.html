@@ -1,0 +1,72 @@
+<app-sidenav>
+  <div class="container">
+    <h1 class="title">Resultados</h1>
+    <div class="box">
+      <p class="item-1">Valor total a recibir por la cartera:</p>
+      <p class="item-2">{{this.walletTotalValue}}</p>
+      <p class="item-1">TCEA (Tasa de costo efectivo anual de la cartera):</p>
+      <p class="item-2">{{this.walletTir}}%</p>
+    </div>
+    <div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="discountDate">
+          <th mat-header-cell *matHeaderCellDef> Fecha de descuento </th>
+          <td mat-cell *matCellDef="let element"> {{element.rate.discount_date | date:'dd/MM/yyyy'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="nominal_value">
+          <th mat-header-cell *matHeaderCellDef> Valor nominal </th>
+          <td mat-cell *matCellDef="let element"> {{element.net_worth.toFixed(2)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="payment_date">
+          <th mat-header-cell *matHeaderCellDef> Fecha de vencimiento </th>
+          <td mat-cell *matCellDef="let element"> {{element.payment_date | date:'dd/MM/yyyy'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="days">
+          <th mat-header-cell *matHeaderCellDef> Días </th>
+          <td mat-cell *matCellDef="let element"> {{element.dias}} </td>
+        </ng-container>
+        <ng-container matColumnDef="retention">
+          <th mat-header-cell *matHeaderCellDef> Retención </th>
+          <td mat-cell *matCellDef="let element"> {{element.retention.toFixed(2)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="discount_rate">
+          <th mat-header-cell *matHeaderCellDef> d% </th>
+          <td mat-cell *matCellDef="let element"> {{element.discount_rate.toFixed(7)}}% </td>
+        </ng-container>
+        <ng-container matColumnDef="discount">
+          <th mat-header-cell *matHeaderCellDef> Descuento </th>
+          <td mat-cell *matCellDef="let element"> {{element.discount.toFixed(7)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="total_starting_costs">
+          <th mat-header-cell *matHeaderCellDef> Costes iniciales </th>
+          <td mat-cell *matCellDef="let element"> {{element.total_starting_costs.toFixed(2)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="total_final_costs">
+          <th mat-header-cell *matHeaderCellDef> Costes finales </th>
+          <td mat-cell *matCellDef="let element"> {{element.total_final_costs.toFixed(2)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="netWorth">
+          <th mat-header-cell *matHeaderCellDef> Valor neto </th>
+          <td mat-cell *matCellDef="let element"> {{element.valor_neto.toFixed(2)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="received_value">
+          <th mat-header-cell *matHeaderCellDef> Valor recibido </th>
+          <td mat-cell *matCellDef="let element"> {{element.received_value.toFixed(2)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="delivered_value">
+          <th mat-header-cell *matHeaderCellDef> Valor Entregado </th>
+          <td mat-cell *matCellDef="let element"> {{element.delivered_value.toFixed(2)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="tcea">
+          <th mat-header-cell *matHeaderCellDef> TCEA% </th>
+          <td mat-cell *matCellDef="let element"> {{element.tcea.toFixed(7)}}% </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <div class="buttons" (click)="navigateToWallet()">
+      <button mat-raised-button> Volver </button>
+    </div>
+  </div>
+</app-sidenav>

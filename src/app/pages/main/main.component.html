@@ -1,3 +1,38 @@
-<p>main works!</p>
-<h1 *ngIf="isLoaded">bienvenido {{userData.nombreUsuario}}</h1>
-<h2>Crear nueva cartera</h2>
+<app-sidenav>
+  <div class="container">
+    <div>
+      <h1 *ngIf="isLoaded" class="title">Bienvenido(a) {{userData.nombreUsuario.toUpperCase()}}</h1>
+    </div>
+    <div *ngIf="!isEmpty">
+      <div class="box" (click)="navigateToWallet()">
+        <div>
+          <img class="wallet-img" src="https://cdn.pixabay.com/photo/2019/10/18/19/51/financial-4560047_960_720.jpg">
+        </div>
+        <div class="box-1">
+          <h2>{{wallet.name}}</h2>
+          <h3>{{wallet.description}}</h3>
+          <h3 *ngIf="wallet.currency_type">Moneda en soles (S/)</h3>
+          <h3 *ngIf="!wallet.currency_type">Moneda en dólares ($)</h3>
+        </div>
+      </div>
+      <div class="buttons" (click)="navigateToAllWalletsByUserId()">
+        <button mat-raised-button>
+          Todas mis carteras
+          <i class='fas fa-arrow-right'></i>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="isEmpty">
+      <div class="box-2">
+        <img class="circular-img" src="https://cdn.pixabay.com/photo/2017/03/21/02/00/pencil-2160915_960_720.png">
+        <h3 class="text-subtitle">Aún no has creado una cartera, dirígete a la sección Mis Carteras y crea tu primera cartera</h3>
+      </div>
+      <div class="buttons" (click)="navigateToAllWalletsByUserId()">
+        <button mat-raised-button>
+          Mis carteras
+          <i class='fas fa-arrow-right'></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</app-sidenav>
