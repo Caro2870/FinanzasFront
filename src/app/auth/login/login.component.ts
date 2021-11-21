@@ -56,6 +56,13 @@ export class LoginComponent implements OnInit {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         console.log(this.nombreUsuario)
+
+        this.userService.getUserByUserName(this.nombreUsuario)
+          .subscribe((response:any) => {
+            this.userData = _.cloneDeep(response);
+            console.log(this.userData)
+            this.router.navigate([`user/${this.userData.id}/main`])
+          });
       },
       err => {
         this.isLogged = false;
@@ -63,15 +70,9 @@ export class LoginComponent implements OnInit {
         this.toastr.error(this.errMsj, 'Fail', {
           timeOut: 3000,  positionClass: 'toast-top-center',
         });
-        // console.log(err.error.message);
+        this.router.navigate([`login`])
       }
     );
 
-    this.userService.getUserByUserName(this.nombreUsuario)
-      .subscribe((response:any) => {
-        this.userData = _.cloneDeep(response);
-        console.log(this.userData)
-        this.router.navigate([`user/${this.userData.id}/main`])
-      });
   }
 }

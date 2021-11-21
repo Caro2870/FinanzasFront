@@ -27,8 +27,8 @@ export class MenuComponent implements OnInit {
 
   onLogOut(): void {
     this.tokenService.logOut();
-    window.location.reload();
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
+    //window.location.reload();
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
