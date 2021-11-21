@@ -1,0 +1,44 @@
+.box {
+  width: 57%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+  padding: 2%;
+  margin: 30px auto;
+  background-color: #A2BCE0;
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+.button {
+  background-color: #62819A;
+  color: white;
+  height: 36px;
+}
+.container {
+  width: 98%;
+  margin: auto;
+  min-height: 490px;
+}
+.item-1 {
+  grid-column: 1;
+  font-size: 1.4em;
+}
+.item-2 {
+  grid-column: 2;
+  background-color: white;
+  border-radius: 8px;
+  padding-left: 12px;
+  font-size: 1.4em;
+  height: auto;
+}
+.size {
+  font-size: 40px;
+}
+table {
+  width: 100%;
+}
+.title {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 3.5em;
+}

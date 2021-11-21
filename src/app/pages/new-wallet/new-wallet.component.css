@@ -1,18 +1,9 @@
-.label {
-  color: black;
-}
-.i {
-  border-top: 1px solid grey;
-  border-right: 1px solid grey;
-  border-bottom: 1px solid grey;
-  border-left: 1px solid grey;
+.buttons {
+  width: 300px;
 }
 .container {
   color: black;
   flex-direction: column;
-  width: 300px;
-}
-.buttons {
   width: 300px;
 }
 .buttons button {

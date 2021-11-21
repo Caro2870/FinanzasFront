@@ -9,11 +9,25 @@
       <p>No se encontró ninguna cartera.<br>Comienza creando tu primera cartera.</p>
     </div>
     <div *ngIf="this.len != 0">
-      <div *ngFor="let wallet of wallets" class="box" (click)="navigateToWallet(wallet.id)">
-        <h2>{{wallet.name}}</h2>
-        <p>{{wallet.description}}</p>
-        <p *ngIf="wallet.currency_type">Moneda en soles (S/)</p>
-        <p *ngIf="!wallet.currency_type">Moneda en dólares ($)</p>
+      <div *ngFor="let wallet of wallets" (click)="navigateToWallet(wallet.id)">
+        <div *ngIf="!wallet.currency_type" class="box color-1">
+          <h2>{{wallet.name.toUpperCase()}}</h2>
+          <div class="mini-box">
+            <p class="item-w-1">Descripción:</p>
+            <p class="item-w-2">{{wallet.description}}</p>
+            <p class="item-w-1">Tipo de moneda:</p>
+            <p class="item-w-2">Dólares ($)</p>
+          </div>
+        </div>
+        <div *ngIf="wallet.currency_type" class="box color-2">
+          <h2>{{wallet.name.toUpperCase()}}</h2>
+          <div class="mini-box">
+            <p class="item-w-1">Descripción:</p>
+            <p class="item-w-2">{{wallet.description}}</p>
+            <p class="item-w-1">Tipo de moneda:</p>
+            <p class="item-w-2">Soles (S/)</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

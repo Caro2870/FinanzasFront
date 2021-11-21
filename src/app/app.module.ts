@@ -48,6 +48,8 @@ import {PaymentDateDialog} from "./pages/fee-receipt/fee-receipt.component";
 import {YouTubePlayerModule} from "@angular/youtube-player";
 import { WalletComponent } from './pages/wallet/wallet.component';
 import { NewWalletComponent } from './pages/new-wallet/new-wallet.component';
+import { ResultComponent } from './pages/result/result.component';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -75,6 +77,7 @@ import { NewWalletComponent } from './pages/new-wallet/new-wallet.component';
     CapitalizationPeriodDialog,
     WalletComponent,
     NewWalletComponent,
+    ResultComponent,
   ],
     imports: [
         BrowserModule,
@@ -102,6 +105,7 @@ import { NewWalletComponent } from './pages/new-wallet/new-wallet.component';
         MatDialogModule,
         MatCardModule,
         YouTubePlayerModule,
+        MatTableModule,
         // ToastrModule added
     ],
   providers: [interceptorProvider],

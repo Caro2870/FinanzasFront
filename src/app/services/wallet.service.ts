@@ -28,7 +28,6 @@ export class WalletService {
       .pipe(retry(2), catchError(this.handleError));
   }
   updateWallet(userId: number, walletId:number, wallet: Wallet):Observable<any>{
-    console.log(`${this.basePath}/api/users/${userId}/wallets/${walletId}`)
     return this.http.put<any>(`${this.basePath}/users/${userId}/wallets/${walletId}`, wallet)
       .pipe(retry(2), catchError(this.handleError));
   }
