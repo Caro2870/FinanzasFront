@@ -24,6 +24,7 @@ export class ResultComponent implements OnInit {
     'payment_date',
     'days',
     'retention',
+    'tasa_efectiva_a_dias',
     'discount_rate',
     'discount',
     'total_starting_costs',

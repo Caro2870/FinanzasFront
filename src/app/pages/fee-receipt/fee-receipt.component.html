@@ -83,13 +83,16 @@
             </mat-option>
           </mat-select>
         </div>
-        <div class="flex">
-          <span (click)="openValueExpressedDialog()" *ngIf="!wallet_currency">Valor expresado en efectivo ($)</span>
-          <span (click)="openValueExpressedDialog()" *ngIf="wallet_currency">Valor expresado en efectivo (S/.)</span>
-          <input type="number" [min]="0"  [(ngModel)]="initial_cost_value" required>
+        <div class="grid">
+          <span (click)="openValueExpressedDialog()">Valor expresado</span>
+          <mat-select [(value)]="selected_value_expressed_initial_type" name="tasas" id="tipo">
+            <mat-option value="in_efec">En efectivo</mat-option>
+            <mat-option value="in_percent">En porcentaje</mat-option>
+          </mat-select>
+          <input type="number" class="reasons_input" [min]="0"  [(ngModel)]="initial_cost_value" required>
           <div class="example-button-container">
             <button mat-mini-fab class="plus-button"
-                    (click)="push_initial_adapted_costs(selected_initial_cost, initial_cost_value)">
+                    (click)="push_initial_adapted_costs(selected_initial_cost, initial_cost_value, selected_value_expressed_initial_type)">
               <mat-icon>add</mat-icon>
             </button>
           </div>
@@ -111,14 +114,19 @@
             </mat-option>
           </mat-select>
         </div>
-        <div class="flex">
-          <span (click)="openValueExpressedDialog()" *ngIf="wallet_currency">Valor expresado en efectivo (S/.)</span>
-          <span (click)="openValueExpressedDialog()" *ngIf="!wallet_currency">Valor expresado en efectivo ($)</span>
-          <input type="number" [min]="0" [(ngModel)]="final_cost_value" required>
+        <div class="grid">
+          <span (click)="openValueExpressedDialog()">Valor expresado</span>
+          <mat-select [(value)]="selected_value_expressed_final_type" name="tasas" id="tipo">
+            <mat-option value="in_efec">En efectivo</mat-option>
+            <mat-option value="in_percent">En porcentaje</mat-option>
+          </mat-select>
+          <input type="number" class="reasons_input" [min]="0"  [(ngModel)]="final_cost_value" required>
+          <div class="example-button-container">
             <button mat-mini-fab class="plus-button"
-                    (click)="push_final_adapted_costs(selected_final_cost, final_cost_value)">
+                    (click)="push_final_adapted_costs(selected_final_cost, final_cost_value, selected_value_expressed_final_type)">
               <mat-icon>add</mat-icon>
             </button>
+          </div>
         </div>
         <div class="scrollable" style="overflow:scroll; height:100px; background-color: white">
             <div class="scrollable-content" *ngFor="let final_cost of final_adapted_costs; let i=index">

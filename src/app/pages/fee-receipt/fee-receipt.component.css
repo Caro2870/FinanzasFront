@@ -24,6 +24,9 @@
 .buttons button{
   margin: 6px;
 }
+.example-button-container{
+  place-self: end;
+}
 .plus-button{
   background-color: #ffff;
   color: #000;
@@ -78,6 +81,15 @@ select{
 .flex{
   display: grid;
   grid-template-columns: 1fr 1fr 0.5fr;
+}
+.reasons_input{
+  width: 50px!important;
+  height: 20px!important;
+}
+.grid{
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 0.8fr 0.4fr 0.3fr;
 }
 .real-flex{
   display: flex;

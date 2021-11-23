@@ -45,6 +45,8 @@ export class FeeReceiptComponent implements OnInit {
   //Rate
   rate_id: any;
   selected_rate_type = 'efectiva';
+  selected_value_expressed_initial_type = 'in_efec'
+  selected_value_expressed_final_type = 'in_efec'
   percentage: any
     //rateterm: getNumberOfDays(selected_rate_plazo)
   discount_date: any;
@@ -62,7 +64,7 @@ export class FeeReceiptComponent implements OnInit {
   id_final_reasons:  Array<number> = []
 
 
-  push_initial_adapted_costs(id_reason: number, value: number){
+  push_initial_adapted_costs(id_reason: number, value: number, value_type: string){
     if (this.id_starting_reasons.some(reasonId => reasonId == id_reason)){
       const dialogRef = this.dialog.open(ReasonsErrorDialog);
       dialogRef.afterClosed().subscribe(result => {
@@ -75,15 +77,16 @@ export class FeeReceiptComponent implements OnInit {
       });
     }
     else{
+      let value_ty = (value_type == 'in_efec')
       let reason = this.getReasonById(Number(id_reason))
       this.initial_adapted_costs.push(new Adapted_cost(reason, Number(id_reason), value))
-      this.initialCosts.push(new Cost(true, value, true))
+      this.initialCosts.push(new Cost(true, value, value_ty))
       this.id_starting_reasons.push(id_reason)
       this.initial_cost_value = ''
     }
   }
 
-  push_final_adapted_costs(id_reason: number, value: number){
+  push_final_adapted_costs(id_reason: number, value: number, value_type: string){
     if (this.id_final_reasons.some(reasonId => reasonId == id_reason)){
       const dialogRef = this.dialog.open(ReasonsErrorDialog);
       dialogRef.afterClosed().subscribe(result => {
@@ -96,9 +99,10 @@ export class FeeReceiptComponent implements OnInit {
       });
     }
     else{
+      let value_ty = (value_type == 'in_efec')
       let reason = this.getReasonById(Number(id_reason))
       this.final_adapted_costs.push(new Adapted_cost(reason, Number(id_reason), value))
-      this.finalCosts.push(new Cost(false, value, true))
+      this.finalCosts.push(new Cost(false, value, value_ty))
       this.id_final_reasons.push(id_reason)
       this.final_cost_value = ''
     }
