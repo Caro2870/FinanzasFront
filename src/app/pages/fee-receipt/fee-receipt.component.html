@@ -16,7 +16,7 @@
         <div class="flex">
           <span (click)="openTotalToReceiveDialog()" *ngIf="wallet_currency">(TR) Total a Recibir (S/.)	</span>
           <span (click)="openTotalToReceiveDialog()" *ngIf="!wallet_currency">(TR) Total a Recibir ($)	</span>
-          <input required [(ngModel)]="net_worth"  type="number" >
+          <input required [(ngModel)]="net_worth" min="0" type="number" >
         </div>
         <div class="flex">
           <span (click)="openRetentionDialog()" *ngIf="wallet_currency">(Rt) Retención (S/.)	</span>
@@ -36,7 +36,7 @@
             <mat-option value="efectiva">Efectiva</mat-option>
             <mat-option value="nominal">Nominal</mat-option>
           </mat-select>
-          <input class="shorter" type="number" placeholder="13.5" [(ngModel)]="percentage" required>
+          <input class="shorter" type="number" min="0" placeholder="13.5" [(ngModel)]="percentage" required>
         </div>
         <div class="flex">
           <span (click)="openPlazoDeTasaDialog()">(P) Plazo de Tasa</span>
@@ -86,7 +86,7 @@
         <div class="flex">
           <span (click)="openValueExpressedDialog()" *ngIf="!wallet_currency">Valor expresado en efectivo ($)</span>
           <span (click)="openValueExpressedDialog()" *ngIf="wallet_currency">Valor expresado en efectivo (S/.)</span>
-          <input type="number"  [(ngModel)]="initial_cost_value" required>
+          <input type="number" [min]="0"  [(ngModel)]="initial_cost_value" required>
           <div class="example-button-container">
             <button mat-mini-fab class="plus-button"
                     (click)="push_initial_adapted_costs(selected_initial_cost, initial_cost_value)">
@@ -114,7 +114,7 @@
         <div class="flex">
           <span (click)="openValueExpressedDialog()" *ngIf="wallet_currency">Valor expresado en efectivo (S/.)</span>
           <span (click)="openValueExpressedDialog()" *ngIf="!wallet_currency">Valor expresado en efectivo ($)</span>
-          <input type="number" [(ngModel)]="final_cost_value" required>
+          <input type="number" [min]="0" [(ngModel)]="final_cost_value" required>
             <button mat-mini-fab class="plus-button"
                     (click)="push_final_adapted_costs(selected_final_cost, final_cost_value)">
               <mat-icon>add</mat-icon>

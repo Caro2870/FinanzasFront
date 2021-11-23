@@ -69,6 +69,11 @@ export class FeeReceiptComponent implements OnInit {
         console.log(`Dialog result: ${result}`);
       });
     }
+    else if (value<0){
+      this.toastr.error('Este valor debe ser mayor a 0', 'Error', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
+    }
     else{
       let reason = this.getReasonById(Number(id_reason))
       this.initial_adapted_costs.push(new Adapted_cost(reason, Number(id_reason), value))
@@ -83,6 +88,11 @@ export class FeeReceiptComponent implements OnInit {
       const dialogRef = this.dialog.open(ReasonsErrorDialog);
       dialogRef.afterClosed().subscribe(result => {
         console.log(`Dialog result: ${result}`);
+      });
+    }
+    else if (value<0){
+      this.toastr.error('Este valor debe ser mayor a 0', 'Error', {
+        timeOut: 3000, positionClass: 'toast-top-center'
       });
     }
     else{
@@ -204,6 +214,11 @@ export class FeeReceiptComponent implements OnInit {
         timeOut: 3000, positionClass: 'toast-top-center'
       });
       console.log(this.net_worth)
+    }
+    else if (this.net_worth <0 || this.percentage < 0){
+      this.toastr.error('Todos los valores númericos deben ser mayores a 0', 'Error', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
     }
     else{
       this.rateService.saveRate(new Rate(this.getNumberOfDays(this.selected_capitalization), this.discount_date, this.percentage,
