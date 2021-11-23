@@ -3,6 +3,7 @@ import {NewWalletComponent} from "../new-wallet/new-wallet.component";
 import {WalletService} from "../../services/wallet.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
+import {EditWalletComponent} from "../edit-wallet/edit-wallet.component";
 
 @Component({
   selector: 'app-wallet',
@@ -33,6 +34,20 @@ export class WalletComponent implements OnInit {
         this.wallets.reverse();
         this.len = response['totalElements'];
       })
+  }
+  editWallet(walletId: number, name: number, description: number, walletCurrencyType: boolean, walletTir: number, walletTotalValue: number): void {
+    this.dialog.open(EditWalletComponent, {data: {userId: this.userId,
+        walletId: walletId,
+        name: name,
+        description: description,
+        currency_type: walletCurrencyType,
+        tir: walletTir,
+        total_value: walletTotalValue}});
+  }
+  deleteWallet(walletId: number): void {
+    this.walletService.deleteWallet(walletId).subscribe( () => {
+      window.location.reload(true);
+    });
   }
   openDialog(): void {
     this.dialog.open(NewWalletComponent, {data: {userId: this.userId}});

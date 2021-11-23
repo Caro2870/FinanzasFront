@@ -9,23 +9,43 @@
       <p>No se encontró ninguna cartera.<br>Comienza creando tu primera cartera.</p>
     </div>
     <div *ngIf="this.len != 0">
-      <div *ngFor="let wallet of wallets" (click)="navigateToWallet(wallet.id)">
-        <div *ngIf="!wallet.currency_type" class="box color-1">
-          <h2>{{wallet.name.toUpperCase()}}</h2>
-          <div class="mini-box">
-            <p class="item-w-1">Descripción:</p>
-            <p class="item-w-2">{{wallet.description}}</p>
-            <p class="item-w-1">Tipo de moneda:</p>
-            <p class="item-w-2">Dólares ($)</p>
+      <div *ngFor="let wallet of wallets">
+        <div *ngIf="!wallet.currency_type" class="wallet-item">
+          <div class="box color-1" (click)="navigateToWallet(wallet.id)">
+            <h2 class="sub-title">{{wallet.name.toUpperCase()}}</h2>
+            <div class="mini-box">
+              <p class="item-w-1">Descripción:</p>
+              <p class="item-w-2">{{wallet.description}}</p>
+              <p class="item-w-1">Tipo de moneda:</p>
+              <p class="item-w-2">Dólares ($)</p>
+            </div>
+          </div>
+          <div class="action-buttons">
+            <button mat-fab class="circular color-1" (click)="editWallet(wallet.id, wallet.name, wallet.description, wallet.currency_type, wallet.tir, wallet.total_value)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-fab class="circular color-1" (click)="deleteWallet(wallet.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
           </div>
         </div>
-        <div *ngIf="wallet.currency_type" class="box color-2">
-          <h2>{{wallet.name.toUpperCase()}}</h2>
-          <div class="mini-box">
-            <p class="item-w-1">Descripción:</p>
-            <p class="item-w-2">{{wallet.description}}</p>
-            <p class="item-w-1">Tipo de moneda:</p>
-            <p class="item-w-2">Soles (S/)</p>
+        <div *ngIf="wallet.currency_type" class="wallet-item">
+          <div class="box color-2" (click)="navigateToWallet(wallet.id)">
+            <h2 class="sub-title">{{wallet.name.toUpperCase()}}</h2>
+            <div class="mini-box">
+              <p class="item-w-1">Descripción:</p>
+              <p class="item-w-2">{{wallet.description}}</p>
+              <p class="item-w-1">Tipo de moneda:</p>
+              <p class="item-w-2">Soles (S/.)</p>
+            </div>
+          </div>
+          <div class="action-buttons">
+            <button mat-fab class="circular color-2" (click)="editWallet(wallet.id, wallet.name, wallet.description, wallet.currency_type, wallet.tir, wallet.total_value)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-fab class="circular color-2" (click)="deleteWallet(wallet.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
           </div>
         </div>
       </div>

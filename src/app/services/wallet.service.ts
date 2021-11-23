@@ -39,4 +39,7 @@ export class WalletService {
     return this.http.post<any>(`${this.basePath}/wallets/user/${userId}/`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+  deleteWallet(walletId: number): Observable<any> {
+    return this.http.delete<any>(`${this.basePath}/wallets/${walletId}`, this.httpOptions);
+  }
 }
