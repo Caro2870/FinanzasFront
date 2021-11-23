@@ -34,3 +34,9 @@
   font-size: 3.5em;
   font-weight: bold;
 }
+
+@media screen and (max-width: 767px) {
+  .img-eperson{
+    display: none
+  }
+}

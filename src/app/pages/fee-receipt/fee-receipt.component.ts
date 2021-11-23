@@ -263,6 +263,12 @@ export class FeeReceiptComponent implements OnInit {
       this.toastr.success('Recibo agregado con éxito', 'OK', {
         timeOut: 3000, positionClass: 'toast-top-center'
       });
+      this.final_adapted_costs = []
+      this.finalCosts = []
+      this.id_final_reasons = []
+      this.initial_adapted_costs = []
+      this.initialCosts = []
+      this.id_starting_reasons = []
     })
   }
 
@@ -316,6 +322,8 @@ export class FeeReceiptComponent implements OnInit {
     this.initial_adapted_costs=[]
     this.finalCosts=[]
     this.initialCosts=[]
+    this.id_final_reasons = []
+    this.id_starting_reasons = []
   }
   deleteInitialItem(id: number){
     this.id_starting_reasons.splice(id, 1)
