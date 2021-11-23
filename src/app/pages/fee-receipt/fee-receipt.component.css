@@ -7,6 +7,11 @@
 .fs-50{
   font-size: 3.5em;
 }
+.info{
+  color: red;
+  padding: 0;
+  margin: 0 0 0 7%;
+}
 .receipt-grid{
   padding: 1% 5%;
   display: grid;
