@@ -32,4 +32,7 @@ export class FeeReceiptService {
   public getReceiptsByWalletId(walletId: number){
     return this.http.get<any>(`${this.basePath}/wallets/${walletId}/feeReceipts`)
   }
+  deleteFeeReceipt(feeReceiptId: number): Observable<any> {
+    return this.http.delete<any>(`${this.basePath}/feeReceipts/${feeReceiptId}`, this.httpOptions);
+  }
 }

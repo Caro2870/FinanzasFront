@@ -21,6 +21,10 @@
   color: white;
   font-size: 1.2em;
 }
+.color {
+  color: firebrick;
+  font-size: 1.2em
+}
 .container {
   width: 98%;
   margin: auto;

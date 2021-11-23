@@ -44,4 +44,7 @@ export class WalletService {
   getWalletByUserIdAndWalletId(userId: number, walletId: number) {
     return this.http.get<any>(`${this.basePath}/usuarios/${userId}/wallets/${walletId}/wallets`)
   }
+  deleteWallet(walletId: number): Observable<any> {
+    return this.http.delete<any>(`${this.basePath}/wallets/${walletId}`, this.httpOptions);
+  }
 }

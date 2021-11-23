@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FeeReceiptService} from "../../services/fee-receipt.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatTableDataSource} from "@angular/material/table";
@@ -31,7 +31,8 @@ export class ResultComponent implements OnInit {
     'netWorth',
     'received_value',
     'delivered_value',
-    'tcea'];
+    'tcea',
+    'action'];
 
   constructor(private walletService: WalletService, private feeReceiptService: FeeReceiptService, private router: Router, private route: ActivatedRoute) {
     this.userId = Number(this.route.snapshot.paramMap.get('id'));
@@ -65,5 +66,17 @@ export class ResultComponent implements OnInit {
   }
   navigateToWallet(): void {
     this.router.navigate([`/user/${this.userId}/wallets/${this.walletId}`]).then(() => null);
+  }
+  deleteFeeReceipt(feeReceiptId: number): void {
+    this.feeReceiptService.deleteFeeReceipt(feeReceiptId).subscribe(() => {
+      this.dataSource.data = this.dataSource.data.filter((o: any) => {
+        return o.id !== feeReceiptId ? o : false;
+      });
+      this.walletService.updateWallet(this.userId, this.walletId,
+        new Wallet(this.wallet.id,this.wallet.description, this.wallet.name, this.wallet.tir,
+          this.wallet.total_value)).subscribe(()=>{
+        window.location.reload(true);
+      })
+    });
   }
 }

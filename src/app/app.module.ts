@@ -51,6 +51,7 @@ import { NewWalletComponent } from './pages/new-wallet/new-wallet.component';
 import { ResultComponent } from './pages/result/result.component';
 import {MatTableModule} from "@angular/material/table";
 import { QuestionsComponent } from './pages/questions/questions.component';
+import { EditWalletComponent } from './pages/edit-wallet/edit-wallet.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { QuestionsComponent } from './pages/questions/questions.component';
     NewWalletComponent,
     ResultComponent,
     QuestionsComponent,
+    EditWalletComponent,
   ],
     imports: [
         BrowserModule,
