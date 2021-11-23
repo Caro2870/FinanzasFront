@@ -11,6 +11,8 @@ import {FeeReceipt} from "../../models/fee-receipt";
 import {CostService} from "../../services/cost.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Wallet} from "../../models/wallet";
+import {ToastrService} from "ngx-toastr";
+
 
 @Component({
   selector: 'app-fee-receipt',
@@ -78,7 +80,8 @@ export class FeeReceiptComponent implements OnInit {
               private rateService: RateService,
               private feeReceiptService: FeeReceiptService,
               private costService: CostService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private toastr: ToastrService) { }
 
 
   ngOnInit(): void {
@@ -171,16 +174,25 @@ export class FeeReceiptComponent implements OnInit {
   saveRate(){
     let rate_type = (this.selected_rate_type=='efectiva')
     console.log(this.discount_date)
-    this.rateService.saveRate(new Rate(this.getNumberOfDays(this.selected_capitalization), this.discount_date, this.percentage,
-      this.getNumberOfDays(this.selected_rate_plazo),rate_type)).subscribe(
+    if (this.issue_date==null||this.payment_date==null|| this.net_worth==null||this.selected_rate_type==null||
+    this.percentage==null || this.selected_rate_plazo == null || this.discount_date == null){
+      this.toastr.info('Completa todos los campos', 'Atención', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
+      console.log(this.net_worth)
+    }
+    else{
+      this.rateService.saveRate(new Rate(this.getNumberOfDays(this.selected_capitalization), this.discount_date, this.percentage,
+        this.getNumberOfDays(this.selected_rate_plazo),rate_type)).subscribe(
         data => {
-        this.rate_id = data.id
-        console.log(data)
+          this.rate_id = data.id
+          console.log(data)
           this.isRateId = true
           this.active_discount_date = true
           this.saveFeeReceipt()
-      }
-    )
+        }
+      )
+    }
   }
 
   saveFeeReceipt(){
