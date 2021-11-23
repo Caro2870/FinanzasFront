@@ -15,7 +15,7 @@
         <div class="flex">
           <span (click)="openTotalToReceiveDialog()" *ngIf="wallet_currency">(TR) Total a Recibir (S/.)	</span>
           <span (click)="openTotalToReceiveDialog()" *ngIf="!wallet_currency">(TR) Total a Recibir ($)	</span>
-          <input matInput required [(ngModel)]="net_worth"  type="number" >
+          <input required [(ngModel)]="net_worth"  type="number" >
         </div>
         <div class="flex">
           <span (click)="openRetentionDialog()" *ngIf="wallet_currency">(Rt) Retención (S/.)	</span>

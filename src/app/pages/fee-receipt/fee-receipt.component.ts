@@ -58,16 +58,40 @@ export class FeeReceiptComponent implements OnInit {
   wallet_currency: any
   wallet_is_empty: any
 
+  id_starting_reasons:  Array<number> = []
+  id_final_reasons:  Array<number> = []
+
+
   push_initial_adapted_costs(id_reason: number, value: number){
-    let reason = this.getReasonById(Number(id_reason))
-    this.initial_adapted_costs.push(new Adapted_cost(reason, Number(id_reason), value))
-    this.initialCosts.push(new Cost(true, value, true))
+    if (this.id_starting_reasons.some(reasonId => reasonId == id_reason)){
+      const dialogRef = this.dialog.open(ReasonsErrorDialog);
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
+    else{
+      let reason = this.getReasonById(Number(id_reason))
+      this.initial_adapted_costs.push(new Adapted_cost(reason, Number(id_reason), value))
+      this.initialCosts.push(new Cost(true, value, true))
+      this.id_starting_reasons.push(id_reason)
+      this.initial_cost_value = ''
+    }
   }
 
   push_final_adapted_costs(id_reason: number, value: number){
-    let reason = this.getReasonById(Number(id_reason))
-    this.final_adapted_costs.push(new Adapted_cost(reason, Number(id_reason), value))
-    this.finalCosts.push(new Cost(false, value, true))
+    if (this.id_final_reasons.some(reasonId => reasonId == id_reason)){
+      const dialogRef = this.dialog.open(ReasonsErrorDialog);
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
+    else{
+      let reason = this.getReasonById(Number(id_reason))
+      this.final_adapted_costs.push(new Adapted_cost(reason, Number(id_reason), value))
+      this.finalCosts.push(new Cost(false, value, true))
+      this.id_final_reasons.push(id_reason)
+      this.final_cost_value = ''
+    }
   }
 
   getReasonById(id: number){
@@ -272,11 +296,13 @@ export class FeeReceiptComponent implements OnInit {
     this.initialCosts=[]
   }
   deleteInitialItem(id: number){
+    this.id_starting_reasons.splice(id, 1)
     this.initial_adapted_costs.splice(id, 1)
     this.initialCosts.splice(id, 1)
     console.log("Hola, ",id)
   }
   deleteFinalItem(id: number){
+    this.id_final_reasons.splice(id, 1)
     this.final_adapted_costs.splice(id, 1)
     this.finalCosts.splice(id, 1)
     console.log("Hola, ",id)
@@ -425,3 +451,9 @@ export class ValueExpressedDialog {}
   templateUrl: 'capitalization-period-dialog.html',
 })
 export class CapitalizationPeriodDialog {}
+
+@Component({
+  selector: 'reasons-error-dialog',
+  templateUrl: 'reasons-error-dialog.html',
+})
+export class ReasonsErrorDialog {}

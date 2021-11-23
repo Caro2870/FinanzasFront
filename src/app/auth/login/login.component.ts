@@ -47,12 +47,11 @@ export class LoginComponent implements OnInit {
       data => {
         console.log(data)
         this.isLogged = true;
-
         this.tokenService.setToken(data.token);
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-        this.toastr.success('Bienvenido ' + data.nombreUsuario, 'OK', {
+        this.toastr.success('Bienvenido ' + this.nombreUsuario, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         console.log(this.nombreUsuario)
@@ -60,7 +59,7 @@ export class LoginComponent implements OnInit {
         this.userService.getUserByUserName(this.nombreUsuario)
           .subscribe((response:any) => {
             this.userData = _.cloneDeep(response);
-            console.log(this.userData)
+            console.log(this.nombreUsuario)
             this.router.navigate([`user/${this.userData.id}/main`])
           });
       },

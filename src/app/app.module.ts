@@ -14,7 +14,7 @@ import { LoginComponent } from './auth/login/login.component';
 import {
   CapitalizationPeriodDialog,
   DaysPerYearDialog, DiscountDateDialog, FinalReasonDialog,
-  IssueDateDialog, PlazoDeTasaDialog,
+  IssueDateDialog, PlazoDeTasaDialog, ReasonsErrorDialog,
   RetentionDialog, StartingReasonDialog, TasaEfectivaDialog,
   TotalToReceiveDialog, ValueExpressedDialog
 } from "./pages/fee-receipt/fee-receipt.component";
@@ -77,6 +77,7 @@ import { EditWalletComponent } from './pages/edit-wallet/edit-wallet.component';
     FinalReasonDialog,
     ValueExpressedDialog,
     CapitalizationPeriodDialog,
+    ReasonsErrorDialog,
     WalletComponent,
     NewWalletComponent,
     ResultComponent,
