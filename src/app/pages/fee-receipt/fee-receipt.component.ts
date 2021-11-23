@@ -241,6 +241,9 @@ export class FeeReceiptComponent implements OnInit {
       this.payment_date, this.getRetention(), this.getTotalFinalCosts(), this.getTotalInitialCosts()),
       this.rate_id,this.walletId,feeReceiptId).subscribe(data=>{
         console.log(data)
+      this.toastr.success('Recibo agregado con éxito', 'OK', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
     })
   }
 
