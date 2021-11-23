@@ -31,7 +31,6 @@ export class WalletComponent implements OnInit {
           return;
         }
         this.wallets = response['content'];
-        this.wallets.reverse();
         this.len = response['totalElements'];
       })
   }
