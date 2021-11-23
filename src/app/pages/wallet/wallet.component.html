@@ -9,7 +9,7 @@
       <p>No se encontró ninguna cartera.<br>Comienza creando tu primera cartera.</p>
     </div>
     <div *ngIf="this.len != 0">
-      <div *ngFor="let wallet of wallets.reverse()">
+      <div *ngFor="let wallet of wallets">
         <div *ngIf="!wallet.currency_type" class="wallet-item">
           <div class="box color-1" (click)="navigateToWallet(wallet.id)">
             <h2 class="sub-title">{{wallet.name.toUpperCase()}}</h2>
