@@ -99,7 +99,8 @@
         </div>
         <div class="scrollable" style="overflow:scroll; height:100px; background-color: white">
             <div class="scrollable-content" *ngFor="let initial_cost of initial_adapted_costs; let i=index">
-              <span>{{initial_cost.reason}} - {{initial_cost.value}}</span>
+              <span *ngIf="!initial_cost.value_expressed_in">{{initial_cost.reason}} - {{initial_cost.value}}%</span>
+              <span *ngIf="initial_cost.value_expressed_in">{{initial_cost.reason}} - {{initial_cost.value}}</span>
               <mat-icon class="pointer" (click)="deleteInitialItem(i)">delete</mat-icon>
             </div>
         </div>
@@ -130,7 +131,8 @@
         </div>
         <div class="scrollable" style="overflow:scroll; height:100px; background-color: white">
             <div class="scrollable-content" *ngFor="let final_cost of final_adapted_costs; let i=index">
-              <span>{{final_cost.reason}} - {{final_cost.value}}</span>
+              <span *ngIf="!final_cost.value_expressed_in">{{final_cost.reason}} - {{final_cost.value}}%</span>
+              <span *ngIf="final_cost.value_expressed_in">{{final_cost.reason}} - {{final_cost.value}}</span>
               <mat-icon class="pointer" (click)="deleteFinalItem(i)">delete</mat-icon>
             </div>
         </div>

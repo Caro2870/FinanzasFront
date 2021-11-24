@@ -79,7 +79,7 @@ export class FeeReceiptComponent implements OnInit {
     else{
       let value_ty = (value_type == 'in_efec')
       let reason = this.getReasonById(Number(id_reason))
-      this.initial_adapted_costs.push(new Adapted_cost(reason, Number(id_reason), value))
+      this.initial_adapted_costs.push(new Adapted_cost(reason, Number(id_reason), value, value_ty))
       this.initialCosts.push(new Cost(true, value, value_ty))
       this.id_starting_reasons.push(id_reason)
       this.initial_cost_value = ''
@@ -101,7 +101,7 @@ export class FeeReceiptComponent implements OnInit {
     else{
       let value_ty = (value_type == 'in_efec')
       let reason = this.getReasonById(Number(id_reason))
-      this.final_adapted_costs.push(new Adapted_cost(reason, Number(id_reason), value))
+      this.final_adapted_costs.push(new Adapted_cost(reason, Number(id_reason), value, value_ty))
       this.finalCosts.push(new Cost(false, value, value_ty))
       this.id_final_reasons.push(id_reason)
       this.final_cost_value = ''
@@ -231,7 +231,7 @@ export class FeeReceiptComponent implements OnInit {
           this.rate_id = data.id
           console.log(data)
           this.isRateId = true
-          this.active_discount_date = true
+          this.active_discount_date = false
           this.saveFeeReceipt()
         }
       )
